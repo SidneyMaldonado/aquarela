@@ -1,0 +1,25 @@
+<h2>Lista de contas do caixa</h2>
+<p>Here are some links to help you get started:</p>
+
+<table class="table">
+
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Carteira</th>
+            <th scope="col">Saldo Inicial</th>
+            <th scope="col">Saldo atualizado</th>
+            <th scope="col">Situacao</th>
+        </tr>
+    </thead>
+    <tr *ngFor="let contacaixa of contacaixas">
+        <td>{{ contacaixa.idContaCaixa }}</td>
+        <td>{{ contacaixa.nmContaCaixa }}</td>
+        <td>{{ contacaixa.idCarteira }}</td>
+        <td>{{ contacaixa.vlSaldoInicial }}</td>
+        <td>{{ contacaixa.idSaldoAtualizado }}</td>
+        <td>{{ contacaixa.dmSituacao }}</td>
+    </tr>
+
+</table>
