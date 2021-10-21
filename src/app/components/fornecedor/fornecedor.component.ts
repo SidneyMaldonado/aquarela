@@ -15,7 +15,7 @@ export class FornecedorComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.fornecedorService.listar().subscribe(resp => {this.fornecedores = resp; console.log(resp)}, error => console.log(error))
+    this.fornecedorService.listar().subscribe(resp => this.fornecedores = resp, error => console.log(error))
   }
 
 }
