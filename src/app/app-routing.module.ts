@@ -8,6 +8,7 @@ import { ParcelaPagarComponent } from './components/parcelapagar/parcelapagar.co
 import { FornecedorComponent } from './components/fornecedor/fornecedor.component';
 import { GrupoProdutoComponent } from './components/grupoproduto/grupoproduto.component';
 import { ClienteComponent } from './components/cliente/cliente.component';
+import { VendaitemComponent } from './components/vendaitem/vendaitem.component';
 
 
 
@@ -21,7 +22,8 @@ const routes: Routes = [
   { path: "fornecedor", component: FornecedorComponent },
   { path: "grupoproduto", component: GrupoProdutoComponent },
   { path: "contacaixa", component: ContacaixaComponent },
-  { path: "cliente", component: ClienteComponent }
+  { path: "cliente", component: ClienteComponent },
+  { path: "vendaitem", component: VendaitemComponent },
 ];
 
 @NgModule({
