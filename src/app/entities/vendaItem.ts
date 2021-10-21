@@ -1,7 +1,7 @@
 export interface VendaItem{
     idVendaItem: number
     idVenda: number
-    idProduto: number
+    produto: string
     nrQuantidade: number
     nrPreco: number
     nrTotal: number

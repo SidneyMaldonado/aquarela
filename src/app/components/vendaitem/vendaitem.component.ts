@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { VendaItem } from 'src/app/entities/vendaItem';
+import { ProdutoService } from 'src/app/services/produto.service';
 import { VendaitemService } from 'src/app/services/vendaitem.service';
 
 @Component({
@@ -11,7 +12,7 @@ export class VendaitemComponent implements OnInit {
 
   vendaItens: VendaItem[] = []
 
-  constructor(private serviceVendaItem: VendaitemService) { }
+  constructor(private serviceVendaItem: VendaitemService, private produtoService: ProdutoService) { }
 
   ngOnInit(): void {
     this.getVendaItem()
@@ -20,7 +21,6 @@ export class VendaitemComponent implements OnInit {
   getVendaItem(){
     this.serviceVendaItem.getAll().subscribe(
       data => this.vendaItens = data
-    )
+    )  
   }
-
 }

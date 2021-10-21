@@ -16,11 +16,11 @@
         <tr *ngFor="let vendaItem of vendaItens">
             <td>{{ vendaItem.idVendaItem }}</td>
             <td>{{ vendaItem.idVenda }}</td>
-            <td>{{ vendaItem.idProduto }}</td>
+            <td>{{ vendaItem.produto }}</td>
             <td>{{ vendaItem.nrQuantidade }}</td>
-            <td>{{ vendaItem.nrPreco }}</td>
+            <td>R$ {{ vendaItem.nrPreco }}</td>
             <td>{{ vendaItem.nrTotal }}</td>
-            <td>{{ vendaItem.dmAtivo }}</td>
+            <td>{{ vendaItem.dmAtivo && "Ativo" || "Inativo" }}</td>
         </tr>
     </tbody>
 </table>
