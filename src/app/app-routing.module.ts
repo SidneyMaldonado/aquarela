@@ -18,9 +18,11 @@ import { ProdutoComponent } from './components/produto/produto.component';
 import { VendaitemComponent } from './components/vendaitem/vendaitem.component';
 import { ParcelaReceberComponent } from './components/parcelareceber/parcelareceber.component';
 import { SaldoatualizadoComponent } from './components/saldoatualizado/saldoatualizado.component';
+import { TipopagarComponent } from './components/tipopagar/tipopagar.component';
 
 const routes: Routes = [
   {path: "contacaixa", component: ContacaixaComponent},
+  {path: "tipopagar", component:TipopagarComponent},
   {path: "pagar", component: PagarComponent},
   {path: "saldoatualizado", component: SaldoatualizadoComponent},
   {path: "contacaixa", component: ContacaixaComponent},

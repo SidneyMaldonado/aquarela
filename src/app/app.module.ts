@@ -19,6 +19,7 @@ import { ClienteService } from './services/cliente.service';
 import { ProdutoComponent } from './components/produto/produto.component';
 import { VendaitemComponent } from './components/vendaitem/vendaitem.component';
 import { ParcelaReceberComponent } from './components/parcelareceber/parcelareceber.component';
+import { TipopagarComponent } from './components/tipopagar/tipopagar.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { ParcelaReceberComponent } from './components/parcelareceber/parcelarece
     ClienteComponent,
     ProdutoComponent,
     VendaitemComponent,
-    ParcelaReceberComponent
+    ParcelaReceberComponent,
+    TipopagarComponent
   ],
   imports: [
     BrowserModule,
