@@ -10,6 +10,7 @@ import { GrupoProdutoComponent } from './components/grupoproduto/grupoproduto.co
 import { ClienteComponent } from './components/cliente/cliente.component';
 import { ProdutoComponent } from './components/produto/produto.component';
 import { VendaitemComponent } from './components/vendaitem/vendaitem.component';
+import { ParcelaReceberComponent } from './components/parcelareceber/parcelareceber.component';
 
 const routes: Routes = [
   {path: "contacaixa", component: ContacaixaComponent},
@@ -29,7 +30,15 @@ const routes: Routes = [
   { path: "contacaixa", component: ContacaixaComponent },
   { path: "cliente", component: ClienteComponent },
   { path: "vendaitem", component: VendaitemComponent },
-];
+  {path: "contacaixa", component: ContacaixaComponent},
+  {path: "parcelapagar", component: ParcelaPagarComponent},
+  {path: "parcelareceber", component: ParcelaReceberComponent},
+  {path: "contacaixa", component: ContacaixaComponent},
+  {path: "fornecedor", component: FornecedorComponent},
+  {path: "grupoproduto", component: GrupoProdutoComponent},
+  {path: "contacaixa", component: ContacaixaComponent},
+  {path: "cliente", component: ClienteComponent}  
+]
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
