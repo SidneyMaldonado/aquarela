@@ -10,3 +10,9 @@
 .main-content > :first-child {
     margin-bottom: 2rem;
 }
+
+td {
+    padding: 0.9rem;
+    max-width: 250px;
+    word-wrap: break-word;
+}

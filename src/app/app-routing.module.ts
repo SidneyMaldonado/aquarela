@@ -5,13 +5,15 @@ import { ContacaixaComponent } from './components/contacaixa/contacaixa.componen
 import { FornecedorComponent } from './components/fornecedor/fornecedor.component';
 import { GrupoProdutoComponent } from './components/grupoproduto/grupoproduto.component';
 import { ClienteComponent } from './components/cliente/cliente.component';
+import { ProdutoComponent } from './components/produto/produto.component';
 
 const routes: Routes = [
   {path: "contacaixa", component: ContacaixaComponent},
   {path: "fornecedor", component: FornecedorComponent},
   {path: "grupoproduto", component: GrupoProdutoComponent},
   {path: "contacaixa", component: ContacaixaComponent},
-  {path: "cliente", component: ClienteComponent}
+  {path: "cliente", component: ClienteComponent},
+  {path: "produto", component: ProdutoComponent}
 ]
 
 @NgModule({

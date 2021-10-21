@@ -9,6 +9,7 @@ import { FornecedorComponent } from './components/fornecedor/fornecedor.componen
 import { GrupoProdutoComponent } from './components/grupoproduto/grupoproduto.component'
 import { ClienteComponent } from './components/cliente/cliente.component'
 import { ClienteService } from './services/cliente.service';
+import { ProdutoComponent } from './components/produto/produto.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ClienteService } from './services/cliente.service';
     ContacaixaComponent,
     FornecedorComponent,
     GrupoProdutoComponent,
-    ClienteComponent
+    ClienteComponent,
+    ProdutoComponent
   ],
   imports: [
     BrowserModule,
