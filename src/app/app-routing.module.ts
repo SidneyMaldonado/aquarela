@@ -6,15 +6,17 @@ import { ParcelaPagarComponent } from './components/parcelapagar/parcelapagar.co
 import { FornecedorComponent } from './components/fornecedor/fornecedor.component';
 import { GrupoProdutoComponent } from './components/grupoproduto/grupoproduto.component';
 import { ClienteComponent } from './components/cliente/cliente.component';
+import { ParcelaReceberComponent } from './components/parcelareceber/parcelareceber.component';
 
 const routes: Routes = [
   {path: "contacaixa", component: ContacaixaComponent},
   {path: "parcelapagar", component: ParcelaPagarComponent},
+  {path: "parcelareceber", component: ParcelaReceberComponent},
   {path: "contacaixa", component: ContacaixaComponent},
   {path: "fornecedor", component: FornecedorComponent},
   {path: "grupoproduto", component: GrupoProdutoComponent},
   {path: "contacaixa", component: ContacaixaComponent},
-  {path: "cliente", component: ClienteComponent}
+  {path: "cliente", component: ClienteComponent}  
 ];
 
 @NgModule({

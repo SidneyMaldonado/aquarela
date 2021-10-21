@@ -1,0 +1,49 @@
+<div class="main-content"> 
+    <h2>Parcelas Receber</h2>
+    <p>Here are some links to help you get started:</p>
+    
+    <table class="table">
+    
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Receber</th>
+                <th scope="col">Tipo</th>
+                <th scope="col">Fornecedor</th>
+                <th scope="col">Receber</th>
+                <th scope="col">Emissao</th>
+                <th scope="col">Parcela</th>
+                <th scope="col">Primeiro Vencimento</th>
+                <th scope="col">Valor</th>
+                <th scope="col">Situacao</th>
+                <th scope="col">Parcela</th>
+                <th scope="col">Documento</th>
+                <th scope="col">Vencimento</th>
+                <th scope="col">Pago</th>
+                <th scope="col">Conta Caixa</th>
+                <th scope="col">Pagamento</th>
+                <th scope="col">Valor Pago</th>
+            </tr>
+        </thead>
+        <tr *ngFor="let parcelareceber of parcelasreceber">
+            
+            <td>{{ parcelareceber.idParcelaReceber }}</td>
+            <td>{{ parcelareceber.idReceber }}</td>
+            <td>{{ parcelareceber.idTipoPagar }}</td>
+            <td>{{ parcelareceber.idFornecedor }}</td>
+            <td>{{ parcelareceber.nmReceber }}</td>
+            <td>{{ parcelareceber.dtEmissao }}</td>
+            <td>{{ parcelareceber.qtdParcela }}</td>
+            <td>{{ parcelareceber.dtPrimeiroVencimento }}</td>
+            <td>{{ parcelareceber.nrValor }}</td>
+            <td>{{ parcelareceber.dmSituacao }}</td>
+            <td>{{ parcelareceber.nrParcela }}</td>
+            <td>{{ parcelareceber.dsDocumento }}</td>
+            <td>{{ parcelareceber.dtVencimento }}</td>
+            <td>{{ parcelareceber.dmPago }}</td>
+            <td>{{ parcelareceber.idContaCaixa }}</td>
+            <td>{{ parcelareceber.dtPagamento }}</td>
+            <td>{{ parcelareceber.nrValorPago }}</td>
+  
+    </table>
+</div>
