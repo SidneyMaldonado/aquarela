@@ -1,3 +1,4 @@
+import { ContaCaixaLista } from './../../entities/contacaixaLista';
 import { ContaCaixa } from './../../entities/contacaixa';
 import { Component, OnInit } from '@angular/core';
 import { ContaCaixaService } from 'src/app/services/contacaixa.service';
@@ -9,7 +10,7 @@ import { ContaCaixaService } from 'src/app/services/contacaixa.service';
 })
 export class ContacaixaComponent implements OnInit {
 
- contacaixas: ContaCaixa[] = [];
+ contacaixas: ContaCaixaLista[] = [];
 
   constructor(private contaCaixaService: ContaCaixaService) { }
 
