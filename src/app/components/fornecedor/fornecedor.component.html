@@ -1,0 +1,23 @@
+<div class="container main-content">
+    <h2>Lista de fornecedores</h2>
+    <table class="table">
+
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Tipo de contato</th>
+                <th scope="col">Telefone</th>
+                <th scope="col">E-mail</th>
+            </tr>
+        </thead>
+        <tr *ngFor="let fornecedor of fornecedores">
+            <td>{{ fornecedor.idFornecedor }}</td>
+            <td>{{ fornecedor.nmFornecedor }}</td>
+            <td>{{ fornecedor.nmContato }}</td>
+            <td>{{ fornecedor.nrTelefone }}</td>
+            <td>{{ fornecedor.nmEmail }}</td>
+        </tr>
+
+    </table>
+</div>

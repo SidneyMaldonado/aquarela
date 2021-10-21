@@ -6,19 +6,28 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ContacaixaComponent } from './components/contacaixa/contacaixa.component';
 import { ParcelaPagarComponent } from './components/parcelapagar/parcelapagar.component'
+import { FornecedorComponent } from './components/fornecedor/fornecedor.component';
+import { GrupoProdutoComponent } from './components/grupoproduto/grupoproduto.component'
+import { ClienteComponent } from './components/cliente/cliente.component'
+import { ClienteService } from './services/cliente.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     ContacaixaComponent,
-    ParcelaPagarComponent
+    ParcelaPagarComponent,
+    FornecedorComponent,
+    GrupoProdutoComponent,
+    ClienteComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    ClienteService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

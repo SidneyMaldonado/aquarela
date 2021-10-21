@@ -1,1 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+.main-content {
+    margin: 1.8rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-content > :first-child {
+    margin-bottom: 2rem;
+}
