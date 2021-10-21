@@ -1,0 +1,39 @@
+<h2>Lista de contas do caixa</h2>
+<p>Here are some links to help you get started:</p>
+
+<table class="table">
+
+    <thead>
+        <!-- idReceber?:number,
+        idFornecedor:number,
+        nmReceber:string,
+        qtdParcela:number,
+        dtEmissao:Date,
+        nrValor:number,
+        primeiroVencimento:Date,
+        dmSituacao:boolean
+        nome -->
+        
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nome fornecedor</th>
+            <th scope="col">Nome Receber</th>
+            <th scope="col">Quantidade Parcelas</th>
+            <th scope="col">Data Emissão</th>
+            <th scope="col">Valor</th>
+            <th scope="col">Primeiro Vencimento</th>
+            <th scope="col">Situação</th>
+        </tr>
+    </thead>
+    <tr *ngFor="let recebimento of recebimentos">
+        <td>{{ recebimento.idReceber }}</td>
+        <td>{{ recebimento.nomeFornecedor }}</td>
+        <td>{{ recebimento.nmReceber }}</td>
+        <td>{{ recebimento.qtdParcela }}</td>
+        <td>{{ recebimento.dtEmissao }}</td>
+        <td>{{ recebimento.nrValor }}</td>
+        <td>{{ recebimento.primeiroVencimento }}</td>
+        <td>{{ recebimento.dmSituacao }}</td>
+    </tr>
+
+</table>
