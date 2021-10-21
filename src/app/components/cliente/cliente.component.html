@@ -1,0 +1,20 @@
+<p>cliente works!</p>
+
+<table class="table">
+    <thead class="black white-text">
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Situacao</th>
+        </tr>
+    </thead>
+    <tbody >
+        <tr *ngFor="let cliente of clientes">
+            <td>{{ cliente.idCliente }}</td>
+            <td>{{ cliente.nmCliente }}</td>
+            <td>{{ cliente.nmEmail }}</td>
+            <td>{{ cliente.dmSituacao }}</td>
+        </tr>
+    </tbody>
+</table>

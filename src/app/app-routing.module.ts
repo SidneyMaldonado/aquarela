@@ -2,9 +2,11 @@ import { ContaCaixa } from './entities/contacaixa';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ContacaixaComponent } from './components/contacaixa/contacaixa.component';
+import { ClienteComponent } from './components/cliente/cliente.component';
 
 const routes: Routes = [
-  {path: "contacaixa", component: ContacaixaComponent}
+  {path: "contacaixa", component: ContacaixaComponent},
+  {path: "cliente", component: ClienteComponent}
 ];
 
 @NgModule({
