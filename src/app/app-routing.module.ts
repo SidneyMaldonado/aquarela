@@ -4,12 +4,15 @@ import { RouterModule, Routes } from '@angular/router';
 import { ContacaixaComponent } from './components/contacaixa/contacaixa.component';
 import { FornecedorComponent } from './components/fornecedor/fornecedor.component';
 import { GrupoProdutoComponent } from './components/grupoproduto/grupoproduto.component';
+import { ClienteComponent } from './components/cliente/cliente.component';
 
 const routes: Routes = [
   {path: "contacaixa", component: ContacaixaComponent},
   {path: "fornecedor", component: FornecedorComponent},
-  {path: "grupoproduto", component: GrupoProdutoComponent}
-];
+  {path: "grupoproduto", component: GrupoProdutoComponent},
+  {path: "contacaixa", component: ContacaixaComponent},
+  {path: "cliente", component: ClienteComponent}
+]
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

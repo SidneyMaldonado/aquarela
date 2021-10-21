@@ -7,20 +7,25 @@ import { HttpClientModule } from '@angular/common/http';
 import { ContacaixaComponent } from './components/contacaixa/contacaixa.component';
 import { FornecedorComponent } from './components/fornecedor/fornecedor.component';
 import { GrupoProdutoComponent } from './components/grupoproduto/grupoproduto.component'
+import { ClienteComponent } from './components/cliente/cliente.component'
+import { ClienteService } from './services/cliente.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     ContacaixaComponent,
     FornecedorComponent,
-    GrupoProdutoComponent
+    GrupoProdutoComponent,
+    ClienteComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    ClienteService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
