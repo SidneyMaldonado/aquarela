@@ -1,1 +1,27 @@
-<p>saldoatualizado works!</p>
+<p>Lista de Saldo Atualizados</p>
+<div class="container main-content">
+<table class="table">
+    <thead>
+         <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Data Saldo Atualizado</th>
+            <th scope="col">Valor Caixa</th>
+            <th scope="col">Valor Deposito</th>
+            <th scope="col">Valor PagSeguro</th>
+            <th scope="col">Valor Itau</th>
+            <th scope="col">Situacao</th>
+            <th scope="col">Valor BB</th>
+         </tr>
+    </thead>
+         <tr *ngFor="let saldoatualizado of saldoatualizados">
+            <td>{{ saldoatualizado.idSaldoAtualizado }}</td>
+            <td>{{ saldoatualizado.dtSaldoAtualizado }}</td>
+            <td>{{ saldoatualizado.vlCaixa }}</td>
+            <td>{{ saldoatualizado.vlDeposito }}</td>
+            <td>{{ saldoatualizado.vlPagseguro }}</td>
+            <td>{{ saldoatualizado.vlItau }}</td>
+            <td>{{ saldoatualizado.dmSituacao }}</td>
+            <td>{{ saldoatualizado.vlBb }}</td>           
+         </tr>
+</table>
+</div>
