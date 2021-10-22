@@ -1,5 +1,5 @@
 function showError(msg: string) {
-    const notificacao = document.getElementById("notificaacao")
+    const notificacao = document.getElementById("notificacao")
     if(notificacao) {
       notificacao.innerHTML = msg
       notificacao.classList.add("err")
