@@ -27,6 +27,7 @@ import { FornecedorIncluirComponent } from './components/fornecedor-incluir/forn
 import { ContaCaixaInserirComponent } from './components/conta-caixa-inserir/conta-caixa-inserir.component';
 import { CarteiraIncluirComponent } from './components/carteira-incluir/carteira-incluir.component';
 import { GrupoprodutoIncluirComponent } from './components/grupoproduto-incluir/grupoproduto-incluir.component';
+import { SaldoatualizadoIncluirComponent } from './components/saldoatualizado-incluir/saldoatualizado-incluir.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { GrupoprodutoIncluirComponent } from './components/grupoproduto-incluir/
     MovdiaIncluirComponent,
     FornecedorIncluirComponent,
     GrupoprodutoIncluirComponent,
-    ContaCaixaInserirComponent
+    ContaCaixaInserirComponent,
+    SaldoatualizadoIncluirComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,18 @@
+<div class ="notificacao" id="notificacao"></div>
+<div class="container main-content">
+    <h2>Inclusão de Saldo</h2>
+    <form class="form" [formGroup]="form" (submit)="submit()">
+        <input class="form-control" type="date" name="data" formControlName="dtSaldoAtualizado">
+        <input class="form-control" class="form-control" type="number" placeholder="Valor caixa" name="vlCaixa" formControlName="vlCaixa">
+        <input class="form-control" type="number" placeholder="Valor deposito" name="vlDeposito" formControlName="vlDeposito">
+        <input class="form-control" type="number" placeholder="Valor PagSeguro" name="vlPagseguro" formControlName="vlPagseguro">
+        <input class="form-control" type="number" placeholder="Valor Itaú" name="vlItau" formControlName="vlItau">
+        <input class="form-control" type="number" placeholder="Valor Banco do Brasil" name="vlBb" formControlName="vlBb">
+        <select aria-placeholder="Situação" class="form-control" formControlName="situacao" name="situacao">
+            <option value="" disabled selected hidden>Situação</option>
+            <option value="0">Inativo</option>
+            <option value="1">Ativo</option>
+        </select>
+        <input class="btn btn-primary" type="submit" value="Incluir">
+    </form>
+</div>

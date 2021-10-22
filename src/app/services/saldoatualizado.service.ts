@@ -13,4 +13,9 @@ export class SaldoatualizadoService {
   listar() : Observable<SaldoAtualizadoLista[]>{
     return this.http.get<SaldoAtualizadoLista[]>("https://localhost:44332/api/saldoatualizado")
   }
+
+  incluir(novoSaldo: SaldoAtualizadoLista): Observable<SaldoAtualizadoLista> {
+    return this.http.post<SaldoAtualizadoLista>("https://localhost:44332/api/saldoatualizado", novoSaldo)
+  }
+  
 }
