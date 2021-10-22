@@ -1,0 +1,17 @@
+<div class="container main-content">
+    <h2>Inclusão de Carteira</h2>
+    <form class="form" [formGroup]="form" (submit)="submit()">
+        <input class="form-control" type="text" placeholder="Historico" name="historico" formControlName="nmHistorico">
+        <input class="form-control" class="form-control" type="number" placeholder="Credito" name="credito" formControlName="nrCredito">
+        <input class="form-control" type="number" placeholder="Debito" name="debito" formControlName="nrDebito">        
+        <input class="form-control" type="number" placeholder="Saldo" name="saldo" formControlName="nrSaldo">
+        <input class="form-control" type="number" placeholder="Id do Cliente" name="idcliente" formControlName="idCliente">
+        <select aria-placeholder="Situação" class="form-control" formControlName="dmSituacao" name="Situação">
+
+            <option value="" disabled selected hidden>Situação</option>
+            <option value="0">Inativo</option>
+            <option value="1">Ativo</option>
+        </select>
+        <input class="btn btn-primary" type="submit" value="Incluir">
+    </form>
+</div>
