@@ -1,3 +1,4 @@
+
 import { ContaCaixa } from './entities/contacaixa';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -23,6 +24,7 @@ import { VendaComponent } from './components/venda/venda.component';
 import { MovdiaIncluirComponent } from './components/movdia-incluir/movdia-incluir.component';
 import { FornecedorIncluirComponent } from './components/fornecedor-incluir/fornecedor-incluir.component';
 import { CarteiraIncluirComponent } from './components/carteira-incluir/carteira-incluir.component';
+import { ParcelapagarIncluirComponent } from './components/parcelapagar-incluir/parcelapagar-incluir.component';
 
 const routes: Routes = [
   {path: "contacaixa", component: ContacaixaComponent},
@@ -58,7 +60,8 @@ const routes: Routes = [
   {path: "contacaixa", component: ContacaixaComponent},
   {path: "cliente", component: ClienteComponent},  
   {path: "venda", component: VendaComponent},
-  {path: "carteiraincluir", component: CarteiraIncluirComponent},
+  {path: "carteira/incluir", component: CarteiraIncluirComponent},
+  {path: "parcelapagar/incluir", component: ParcelapagarIncluirComponent},
   {path:"movdia/incluir", component: MovdiaIncluirComponent},
   {path: "fornecedor/incluir", component: FornecedorIncluirComponent}  
 ]

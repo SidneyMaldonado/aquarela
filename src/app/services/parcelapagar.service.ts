@@ -16,5 +16,9 @@ export class ParcelaPagarService {
     return this.http.get<ParcelaPagar[]>("https://localhost:44332/api/parcelapagar");
 
   }
+  incluir(parcelapagar: ParcelaPagar): Observable<ParcelaPagar> {
+    return this.http.post<ParcelaPagar>("https://localhost:44332/api/parcelapagar", parcelapagar)
+  } 
+
 
 }
