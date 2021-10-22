@@ -6,5 +6,5 @@ export interface Fornecedor {
     nmEmail: string
     urlLogotipo: string
     dsObservacao: string
-    dmSituacao: boolean
+    dmSituacao: Boolean
 }

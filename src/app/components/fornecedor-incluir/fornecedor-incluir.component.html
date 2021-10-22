@@ -1,0 +1,18 @@
+<div class ="notificacao" id="notificacao"></div>
+<div class="container main-content">
+    <h2>Inclusão de fornecedor</h2>
+    <form class="form" [formGroup]="form" (submit)="submit()">
+        <input class="form-control" type="text" placeholder="Nome" name="nome" formControlName="nome">
+        <input class="form-control" class="form-control" type="text" placeholder="Nome do contato" name="nmContato" formControlName="nmContato">
+        <input class="form-control" type="tel" placeholder="Numero de telefone" name="nrTelefone" formControlName="nrTelefone">
+        <input class="form-control" type="email" placeholder="E-mail" name="nmEmail" formControlName="nmEmail">
+        <input class="form-control" type="text" placeholder="Url da logotipo" name="logo" formControlName="logo">
+        <input class="form-control" type="text" placeholder="Observação" name="obs" formControlName="obs">
+        <select aria-placeholder="Situação" class="form-control" formControlName="situacao" name="situacao">
+            <option value="" disabled selected hidden>Situação</option>
+            <option value="0">Inativo</option>
+            <option value="1">Ativo</option>
+        </select>
+        <input class="btn btn-primary" type="submit" value="Incluir">
+    </form>
+</div>
