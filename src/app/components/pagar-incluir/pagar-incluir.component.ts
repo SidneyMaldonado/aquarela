@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Pagar } from 'src/app/entities/pagar';
+import { showError, showSuccess } from 'src/app/formHandler/formhandler';
 import { PagarService } from 'src/app/services/pagar.service';
 
 @Component({
@@ -11,7 +12,6 @@ import { PagarService } from 'src/app/services/pagar.service';
 export class PagarIncluirComponent implements OnInit {
 
   form: FormGroup = this.formBuilder.group({
-    idPagar: ['', Validators.required],
     idTipoPagar: ['', Validators.required],
     idFornecedor: ['', Validators.required],
     nmPagar: ['', Validators.required],
@@ -38,15 +38,16 @@ export class PagarIncluirComponent implements OnInit {
       qtdParcela: this.form.value.qtdParcela,
       dtEmissao: this.form.value.dtEmissao,
       nrValor: this.form.value.nrValor,
-      dmSituacao: Boolean(this.form.value.dm),
+      dmSituacao: Boolean(this.form.value.dmSituacao),
       dtPrimeiroVencimento: this.form.value.dtPrimeiroVencimento
       //const novoPagar: Pagar = this.form.value
       //novoPagar.dmSituacao=Boolean(novoPagar.dmSituacao)
     }
     console.log(novoPagar)
+    showSuccess("Pagamento inserido")
     this.pagarService.incluir(novoPagar).subscribe(res => console.log(res), error => console.log(error))
   }else{
-    alert('Dados inválidos!')
+    showError('Dados inválidos!')
   }
 
 }

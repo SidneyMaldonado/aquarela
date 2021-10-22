@@ -3,64 +3,68 @@
 
     <table class="table">
 
-    <thead>
+        <thead>
 
 
-        <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Data MovDia</th>
-            <th scope="col">Domínio Ativo</th>
-            <th scope="col">Nota 100</th>
-            <th scope="col">Nota 50</th>
-            <th scope="col">Nota 20</th>
-            <th scope="col">Nota 10</th>
-            <th scope="col">Nota 5</th>
-            <th scope="col">Nota 2</th>
-            <th scope="col">Valor Pagseguro</th>
-            <th scope="col">Valor Despesa</th>
-            <th scope="col">Valor Deposito</th>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Data MovDia</th>
+                <th scope="col">Domínio Ativo</th>
+                <th scope="col">Nota 100</th>
+                <th scope="col">Nota 50</th>
+                <th scope="col">Nota 20</th>
+                <th scope="col">Nota 10</th>
+                <th scope="col">Nota 5</th>
+                <th scope="col">Nota 2</th>
+                <th scope="col">Valor Pagseguro</th>
+                <th scope="col">Valor Despesa</th>
+                <th scope="col">Valor Troco</th>
+                <th scope="col">Valor Deposito</th>
 
+            </tr>
+        </thead>
+        <tr *ngFor="let movdia of movdias">
+
+            <td>
+                {{movdia.idMovDia}}
+            </td>
+            <td>
+                {{movdia.dtMovDia}}
+            </td>
+            <td>
+                {{movdia.dmAtivo}}
+            </td>
+            <td>
+                {{movdia.vlNota100}}
+            </td>
+            <td>
+                {{movdia.vlNota50}}
+            </td>
+            <td>
+                {{movdia.vlNota20}}
+            </td>
+            <td>
+                {{movdia.vlNota10}}
+            </td>
+            <td>
+                {{movdia.vlNota5}}
+            </td>
+            <td>
+                {{movdia.vlNota2}}
+            </td>
+            <td>
+                {{movdia.vlPagseguro}}
+            </td>
+            <td>
+                {{movdia.vlDespesa}}
+            </td>
+            <td>
+                {{movdia.vlTroco}}
+            </td>
+            <td>
+                {{movdia.vlDeposito}}
+            </td>
         </tr>
-    </thead>
-    <tr *ngFor="let movdia of movdias">
 
-        <td>
-            {{movdia.idMovDia}}
-        </td>
-        <td>
-            {{movdia.dtMovDia}}
-        </td>
-        <td>
-            {{movdia.dmAtivo}}
-        </td>
-        <td>
-            {{movdia.vlNota100}}
-        </td>
-        <td>
-            {{movdia.vlNota50}}
-        </td>
-        <td>
-            {{movdia.vlNota20}}
-        </td>
-        <td>
-            {{movdia.vlNota10}}
-        </td>
-        <td>
-            {{movdia.vlNota5}}
-        </td>
-        <td>
-            {{movdia.vlNota2}}
-        </td>
-        <td>
-            {{movdia.vlPagseguro}}
-        </td>
-        <td>
-            {{movdia.vlDespesa}}
-        </td>
-        <td>
-            {{movdia.vlDeposito}}
-        </td>
-    </tr>
-
-</table>
+    </table>
 </div>

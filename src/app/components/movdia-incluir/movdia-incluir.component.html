@@ -1,0 +1,23 @@
+<div class="container main-content">
+    <div id="notificacao" class="notificacao">
+
+    </div>
+    <form class="form" [formGroup]="form" (submit)="incluir()">
+        <input class="form-control" placeholder="Data" formControlName="dtMovDia" type="date">
+        <select class="form-control" formControlName="dmAtivo">
+            <option value="1" default>Ativo</option>
+            <option value="0">Inativo</option>
+        </select>
+        <input class="form-control" placeholder="Valor notas de R$100" formControlName="vlNota100" type="number">
+        <input class="form-control" placeholder="Valor notas de R$50" formControlName="vlNota50" type="number">
+        <input class="form-control" placeholder="Valor notas de R$20" formControlName="vlNota20" type="number">
+        <input class="form-control" placeholder="Valor notas de R$10" formControlName="vlNota10" type="number">
+        <input class="form-control" placeholder="Valor notas de R$5" formControlName="vlNota5" type="number">
+        <input class="form-control" placeholder="Valor notas de R$2" formControlName="vlNota2" type="number">
+        <input class="form-control" placeholder="Valor PagSeguro" formControlName="vlPagseguro" type="number">
+        <input class="form-control" placeholder="Valor despesas" formControlName="vlDespesa" type="number">
+        <input class="form-control" placeholder="Valor troco" formControlName="vlTroco" type="number">
+        <input class="form-control" placeholder="Valor depósito" formControlName="vlDeposito" type="number">
+        <input class="form-control" type="submit">
+    </form>
+</div>
