@@ -21,8 +21,9 @@ import { VendaitemComponent } from './components/vendaitem/vendaitem.component';
 import { ParcelaReceberComponent } from './components/parcelareceber/parcelareceber.component';
 import { TipopagarComponent } from './components/tipopagar/tipopagar.component';
 import { VendaComponent } from './components/venda/venda.component';
+import { MovdiaIncluirComponent } from './components/movdia-incluir/movdia-incluir.component';
+import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FornecedorIncluirComponent } from './components/fornecedor-incluir/fornecedor-incluir.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CarteiraIncluirComponent } from './components/carteira-incluir/carteira-incluir.component';
 
 @NgModule({
@@ -45,7 +46,9 @@ import { CarteiraIncluirComponent } from './components/carteira-incluir/carteira
     TipopagarComponent,
     VendaComponent,
     FornecedorIncluirComponent,
-    CarteiraIncluirComponent
+    CarteiraIncluirComponent,
+    MovdiaIncluirComponent,
+    FornecedorIncluirComponent
   ],
   imports: [
     BrowserModule,

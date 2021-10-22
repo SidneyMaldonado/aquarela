@@ -9,6 +9,7 @@ import { MovdiaService } from 'src/app/services/movdia.service';
 })
 export class MovdiaComponent implements OnInit {
   movdias:MovDia[]=[]
+
   constructor(private movdiaService:MovdiaService) { }
 
   ngOnInit(): void {
@@ -16,5 +17,6 @@ export class MovdiaComponent implements OnInit {
       data=>this.movdias=data
     )
   }
+
 
 }
