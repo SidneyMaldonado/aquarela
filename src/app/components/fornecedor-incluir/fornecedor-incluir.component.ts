@@ -14,7 +14,7 @@ export class FornecedorIncluirComponent implements OnInit {
     nome: ['', Validators.required],
     nmContato: ['', Validators.required],
     nrTelefone: ['', Validators.required],
-    nmEmail: ['', Validators.required],
+    nmEmail: ['', [Validators.required, Validators.email, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
     logo: ['', Validators.required],
     obs: ['', Validators.required],
     situacao: ['', Validators.required],
