@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Pagar } from 'src/app/entities/pagar';
 import { PagarLista } from 'src/app/entities/pagarLista';
 import { PagarService } from 'src/app/services/pagar.service';
 
@@ -9,7 +10,7 @@ import { PagarService } from 'src/app/services/pagar.service';
 })
 export class PagarComponent implements OnInit {
 
-  pagars: PagarLista[] = [];
+  pagars: Pagar[] = [];
   
   constructor(private pagarService: PagarService) { }
 
@@ -18,7 +19,7 @@ export class PagarComponent implements OnInit {
     this.pagarService.listar().subscribe(
       dados => this.pagars = dados,
       error => alert("Erro ao buscar *Pagar*")
-    );
+    )
   }
 
 }
