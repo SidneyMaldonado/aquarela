@@ -21,6 +21,8 @@ import { VendaitemComponent } from './components/vendaitem/vendaitem.component';
 import { ParcelaReceberComponent } from './components/parcelareceber/parcelareceber.component';
 import { TipopagarComponent } from './components/tipopagar/tipopagar.component';
 import { VendaComponent } from './components/venda/venda.component';
+import { MovdiaIncluirComponent } from './components/movdia-incluir/movdia-incluir.component';
+import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -40,12 +42,15 @@ import { VendaComponent } from './components/venda/venda.component';
     VendaitemComponent,
     ParcelaReceberComponent,
     TipopagarComponent,
-    VendaComponent
+    VendaComponent,
+    MovdiaIncluirComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     ClienteService
