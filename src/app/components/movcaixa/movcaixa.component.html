@@ -1,4 +1,4 @@
-<h2>Lista de Carteira</h2>
+<h2>Lista de Movimento de Caixa</h2>
 
 <div class="container main-content"> 
     <table class="table">
@@ -7,7 +7,6 @@
             <tr>
                 <th scope="col"> ID</th>
                 <th scope="col"> Data de inclusão</th>
-                
                 <th scope="col"> Situação</th>
                 <th scope="col"> Parcela</th>
                 <th scope="col"> Movimento do dia</th>
@@ -21,7 +20,6 @@
         <tr *ngFor="let movcaixa of movcaixas">
             <td>{{ movcaixa.idMovcaixa }}</td>
             <td>{{ movcaixa.dtMovcaixa }}</td>
-            
             <td>{{ movcaixa.dmSituacao }}</td>
             <td>{{ movcaixa.idParcela }}</td>
             <td>{{ movcaixa.idMovdia }}</td>
