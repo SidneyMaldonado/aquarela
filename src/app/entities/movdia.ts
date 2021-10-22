@@ -10,5 +10,6 @@ export interface MovDia{
     vlNota2:number,
     vlPagseguro:number,
     vlDespesa:number,
+    vlTroco:number,
     vlDeposito:number,
 }

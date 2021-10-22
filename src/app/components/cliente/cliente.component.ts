@@ -22,4 +22,5 @@ export class ClienteComponent implements OnInit {
       data => {this.clientes = data}
     )
   }
+  
 }

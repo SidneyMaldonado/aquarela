@@ -21,6 +21,9 @@ import { SaldoatualizadoComponent } from './components/saldoatualizado/saldoatua
 import { TipopagarComponent } from './components/tipopagar/tipopagar.component';
 import { VendaComponent } from './components/venda/venda.component';
 import { ClienteIncluirComponent } from './components/cliente-incluir/cliente-incluir.component';
+import { MovdiaIncluirComponent } from './components/movdia-incluir/movdia-incluir.component';
+import { FornecedorIncluirComponent } from './components/fornecedor-incluir/fornecedor-incluir.component';
+import { ProdutoIncluirComponent } from './components/produto-incluir/produto-incluir.component';
 
 const routes: Routes = [
   {path: "tipopagar", component:TipopagarComponent},
@@ -45,6 +48,9 @@ const routes: Routes = [
   {path: "cliente", component: ClienteComponent},  
   {path: "venda", component: VendaComponent},
   {path: "cliente/incluir", component: ClienteIncluirComponent}, 
+  {path: "produto/incluir", component: ProdutoIncluirComponent}, 
+  {path:"movdia/incluir", component: MovdiaIncluirComponent},
+  {path: "fornecedor/incluir", component: FornecedorIncluirComponent}  
 ]
 
 @NgModule({

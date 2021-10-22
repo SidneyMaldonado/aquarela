@@ -54,9 +54,9 @@ export class ClienteIncluirComponent implements OnInit {
       
       this.fornecedorService.incluir(novoCliente).subscribe(res => {
         console.log(res)
-        this.showSuccess("Fornecedor inserido")
+        this.showSuccess("Cliente inserido")
       }, error => {
-        if(error.status == 200) this.showSuccess('Fornecedor inserido')
+        if(error.status == 200) this.showSuccess('Cliente inserido')
         else console.log(error)
       })
     } else {

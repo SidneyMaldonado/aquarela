@@ -14,4 +14,7 @@ export class MovdiaService {
   listar():Observable<MovDia[]>{
     return this.http.get<MovDia[]>(this.url)
   }
+  incluir(body:MovDia):Observable<string>{
+    return this.http.post<string>(this.url, body)
+  }
 }
