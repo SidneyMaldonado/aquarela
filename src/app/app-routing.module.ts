@@ -20,9 +20,9 @@ import { ParcelaReceberComponent } from './components/parcelareceber/parcelarece
 import { SaldoatualizadoComponent } from './components/saldoatualizado/saldoatualizado.component';
 import { TipopagarComponent } from './components/tipopagar/tipopagar.component';
 import { VendaComponent } from './components/venda/venda.component';
+import { ClienteIncluirComponent } from './components/cliente-incluir/cliente-incluir.component';
 
 const routes: Routes = [
-  {path: "contacaixa", component: ContacaixaComponent},
   {path: "tipopagar", component:TipopagarComponent},
   {path: "pagar", component: PagarComponent},
   {path: "saldoatualizado", component: SaldoatualizadoComponent},
@@ -35,17 +35,6 @@ const routes: Routes = [
   {path: "contacaixa", component: ContacaixaComponent},
   {path: "cliente", component: ClienteComponent},
   {path: "produto", component: ProdutoComponent},
-  { path: "contacaixa", component: ContacaixaComponent },
-  { path: "contacaixa", component: ContacaixaComponent },
-  { path: "receber", component: ReceberComponent },
-  { path: "movdia", component: MovdiaComponent },
-  { path: "parcelapagar", component: ParcelaPagarComponent },
-  { path: "contacaixa", component: ContacaixaComponent },
-  { path: "fornecedor", component: FornecedorComponent },
-  { path: "grupoproduto", component: GrupoProdutoComponent },
-  { path: "contacaixa", component: ContacaixaComponent },
-  { path: "cliente", component: ClienteComponent },
-  { path: "vendaitem", component: VendaitemComponent },
   {path: "contacaixa", component: ContacaixaComponent},
   {path: "parcelapagar", component: ParcelaPagarComponent},
   {path: "parcelareceber", component: ParcelaReceberComponent},
@@ -54,7 +43,8 @@ const routes: Routes = [
   {path: "grupoproduto", component: GrupoProdutoComponent},
   {path: "contacaixa", component: ContacaixaComponent},
   {path: "cliente", component: ClienteComponent},  
-  {path: "venda", component: VendaComponent}  
+  {path: "venda", component: VendaComponent},
+  {path: "cliente/incluir", component: ClienteIncluirComponent}, 
 ]
 
 @NgModule({

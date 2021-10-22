@@ -8,11 +8,15 @@ import { Cliente } from '../entities/cliente';
 })
 export class ClienteService {
 
-  url = "https://localhost:44332/api/cliente"
+  private apiUrl: string = 'https://localhost:44332/api/cliente'
 
   constructor(private http: HttpClient) {}
 
   getAll(): Observable<Cliente[]>{
-    return this.http.get<Cliente[]>(`${this.url}`)
+    return this.http.get<Cliente[]>(`${this.apiUrl}`)
   }
+  
+  incluir(cliente: Cliente): Observable<Cliente> {
+    return this.http.post<Cliente>(this.apiUrl, cliente)
+  } 
 }
