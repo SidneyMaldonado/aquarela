@@ -21,13 +21,20 @@ import { ParcelaReceberComponent } from './components/parcelareceber/parcelarece
 import { SaldoatualizadoComponent } from './components/saldoatualizado/saldoatualizado.component';
 import { TipopagarComponent } from './components/tipopagar/tipopagar.component';
 import { VendaComponent } from './components/venda/venda.component';
+import { ClienteIncluirComponent } from './components/cliente-incluir/cliente-incluir.component';
 import { MovdiaIncluirComponent } from './components/movdia-incluir/movdia-incluir.component';
 import { FornecedorIncluirComponent } from './components/fornecedor-incluir/fornecedor-incluir.component';
+import { ProdutoIncluirComponent } from './components/produto-incluir/produto-incluir.component';
+import { PagarIncluirComponent } from './components/pagar-incluir/pagar-incluir.component';
+import { ContaCaixaInserirComponent } from './components/conta-caixa-inserir/conta-caixa-inserir.component';
 import { CarteiraIncluirComponent } from './components/carteira-incluir/carteira-incluir.component';
 import { ParcelapagarIncluirComponent } from './components/parcelapagar-incluir/parcelapagar-incluir.component';
+import { TipoPagarIncluirComponent } from './components/tipo-pagar-incluir/tipo-pagar-incluir.component';
+import { GrupoprodutoIncluirComponent } from './components/grupoproduto-incluir/grupoproduto-incluir.component';
+
+
 
 const routes: Routes = [
-  {path: "contacaixa", component: ContacaixaComponent},
   {path: "tipopagar", component:TipopagarComponent},
   {path: "pagar", component: PagarComponent},
   {path: "saldoatualizado", component: SaldoatualizadoComponent},
@@ -40,17 +47,6 @@ const routes: Routes = [
   {path: "contacaixa", component: ContacaixaComponent},
   {path: "cliente", component: ClienteComponent},
   {path: "produto", component: ProdutoComponent},
-  { path: "contacaixa", component: ContacaixaComponent },
-  { path: "contacaixa", component: ContacaixaComponent },
-  { path: "receber", component: ReceberComponent },
-  { path: "movdia", component: MovdiaComponent },
-  { path: "parcelapagar", component: ParcelaPagarComponent },
-  { path: "contacaixa", component: ContacaixaComponent },
-  { path: "fornecedor", component: FornecedorComponent },
-  { path: "grupoproduto", component: GrupoProdutoComponent },
-  { path: "contacaixa", component: ContacaixaComponent },
-  { path: "cliente", component: ClienteComponent },
-  { path: "vendaitem", component: VendaitemComponent },
   {path: "contacaixa", component: ContacaixaComponent},
   {path: "parcelapagar", component: ParcelaPagarComponent},
   {path: "parcelareceber", component: ParcelaReceberComponent},
@@ -62,8 +58,16 @@ const routes: Routes = [
   {path: "venda", component: VendaComponent},
   {path: "carteira/incluir", component: CarteiraIncluirComponent},
   {path: "parcelapagar/incluir", component: ParcelapagarIncluirComponent},
+  {path: "cliente/incluir", component: ClienteIncluirComponent}, 
+  {path: "produto/incluir", component: ProdutoIncluirComponent}, 
+  {path: "fornecedor/incluir", component: FornecedorIncluirComponent},
+  {path: "pagar/incluir", component: PagarIncluirComponent},
+  {path: "carteiraincluir", component: CarteiraIncluirComponent},
   {path:"movdia/incluir", component: MovdiaIncluirComponent},
-  {path: "fornecedor/incluir", component: FornecedorIncluirComponent}  
+  {path: "fornecedor/incluir", component: FornecedorIncluirComponent},
+  {path: "grupoproduto/incluir", component: GrupoprodutoIncluirComponent},
+  {path: "contacaixa/incluir", component:ContaCaixaInserirComponent},
+  {path:"tipopagar/incluir", component:TipoPagarIncluirComponent}  
 ]
 
 @NgModule({

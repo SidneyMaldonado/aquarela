@@ -1,0 +1,14 @@
+<div class="container main-content">
+    <div id="notificacao" class="notificacao">
+
+    </div>
+    <form class="form" [formGroup]="form" (submit)="incluir()">
+        <input class="form-control" placeholder="Nome tipo conta" formControlName="nomeTipoConta" type="text">
+        <input class="form-control" placeholder="Nome tipo pagar" formControlName="nomeTipoPagar" type="text">
+        <select class="form-control" formControlName="dmSituacao">
+            <option value="1" default>Ativo</option>
+            <option value="0">Inativo</option>
+        </select>
+        <input class="form-control" type="submit">
+    </form>
+</div>
