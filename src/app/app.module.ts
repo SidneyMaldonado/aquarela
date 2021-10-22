@@ -25,6 +25,7 @@ import { MovdiaIncluirComponent } from './components/movdia-incluir/movdia-inclu
 import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FornecedorIncluirComponent } from './components/fornecedor-incluir/fornecedor-incluir.component';
 import { CarteiraIncluirComponent } from './components/carteira-incluir/carteira-incluir.component';
+import { GrupoprodutoIncluirComponent } from './components/grupoproduto-incluir/grupoproduto-incluir.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { CarteiraIncluirComponent } from './components/carteira-incluir/carteira
     FornecedorIncluirComponent,
     CarteiraIncluirComponent,
     MovdiaIncluirComponent,
-    FornecedorIncluirComponent
+    FornecedorIncluirComponent,
+    GrupoprodutoIncluirComponent
   ],
   imports: [
     BrowserModule,

@@ -23,6 +23,7 @@ import { VendaComponent } from './components/venda/venda.component';
 import { MovdiaIncluirComponent } from './components/movdia-incluir/movdia-incluir.component';
 import { FornecedorIncluirComponent } from './components/fornecedor-incluir/fornecedor-incluir.component';
 import { CarteiraIncluirComponent } from './components/carteira-incluir/carteira-incluir.component';
+import { GrupoprodutoIncluirComponent } from './components/grupoproduto-incluir/grupoproduto-incluir.component';
 
 const routes: Routes = [
   {path: "contacaixa", component: ContacaixaComponent},
@@ -60,7 +61,8 @@ const routes: Routes = [
   {path: "venda", component: VendaComponent},
   {path: "carteiraincluir", component: CarteiraIncluirComponent},
   {path:"movdia/incluir", component: MovdiaIncluirComponent},
-  {path: "fornecedor/incluir", component: FornecedorIncluirComponent}  
+  {path: "fornecedor/incluir", component: FornecedorIncluirComponent},
+  {path: "grupoproduto/incluir", component: GrupoprodutoIncluirComponent},
 ]
 
 @NgModule({
