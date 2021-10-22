@@ -9,13 +9,18 @@ import { Observable } from 'rxjs';
 })
 export class ContaCaixaService {
 
+  private url = "https://localhost:44332/api/contacaixa"
+
   constructor( private http: HttpClient) { }
 
 
   listar() : Observable<ContaCaixaLista[]> {
 
-    return this.http.get<ContaCaixaLista[]>("https://localhost:44332/api/contacaixa");
+    return this.http.get<ContaCaixaLista[]>(this.url);
 
+  }
+  incluir(body:ContaCaixa) : Observable<string>{
+    return this.http.post<string>(this.url, body)
   }
 
 }

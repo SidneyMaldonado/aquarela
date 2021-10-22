@@ -16,4 +16,8 @@ export class GrupoProdutoService {
     return this.http.get<GrupoProduto[]>(`${this.apiUrl}`)
   }
 
+  incluir(novoGrupoProduto: GrupoProduto): Observable<GrupoProduto> {
+    return this.http.post<GrupoProduto>(this.apiUrl, novoGrupoProduto)
+  }
+ 
 }
