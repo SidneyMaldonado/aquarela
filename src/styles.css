@@ -16,3 +16,15 @@ td {
     max-width: 250px;
     word-wrap: break-word;
 }
+
+.form {
+    width: 30vw;
+}
+
+.form input, select, option {
+    margin-bottom: .7rem;
+}
+
+.form input[type=submit] {
+    margin-top: 0.7rem;
+}

@@ -17,4 +17,8 @@ export class FornecedorService {
     return this.http.get<Fornecedor[]>(`${this.apiUrl}`)
   }
 
+  incluir(fornecedor: Fornecedor): Observable<Fornecedor> {
+    return this.http.post<Fornecedor>(this.apiUrl, fornecedor)
+  } 
+
 }
