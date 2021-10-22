@@ -28,6 +28,7 @@ import { PagarIncluirComponent } from './components/pagar-incluir/pagar-incluir.
 import { ContaCaixaInserirComponent } from './components/conta-caixa-inserir/conta-caixa-inserir.component';
 import { CarteiraIncluirComponent } from './components/carteira-incluir/carteira-incluir.component';
 import { GrupoprodutoIncluirComponent } from './components/grupoproduto-incluir/grupoproduto-incluir.component';
+import { TipoPagarIncluirComponent } from './components/tipo-pagar-incluir/tipo-pagar-incluir.component';
 
 
 const routes: Routes = [
@@ -60,7 +61,8 @@ const routes: Routes = [
   {path:"movdia/incluir", component: MovdiaIncluirComponent},
   {path: "fornecedor/incluir", component: FornecedorIncluirComponent},
   {path: "grupoproduto/incluir", component: GrupoprodutoIncluirComponent},
-  {path: "contacaixa/incluir", component:ContaCaixaInserirComponent}  
+  {path: "contacaixa/incluir", component:ContaCaixaInserirComponent},
+  {path:"tipopagar/incluir", component:TipoPagarIncluirComponent}  
 ]
 
 @NgModule({

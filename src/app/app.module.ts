@@ -30,6 +30,7 @@ import { PagarIncluirComponent } from './components/pagar-incluir/pagar-incluir.
 import { ContaCaixaInserirComponent } from './components/conta-caixa-inserir/conta-caixa-inserir.component';
 import { CarteiraIncluirComponent } from './components/carteira-incluir/carteira-incluir.component';
 import { GrupoprodutoIncluirComponent } from './components/grupoproduto-incluir/grupoproduto-incluir.component';
+import { TipoPagarIncluirComponent } from './components/tipo-pagar-incluir/tipo-pagar-incluir.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { GrupoprodutoIncluirComponent } from './components/grupoproduto-incluir/
     FornecedorIncluirComponent,
     ProdutoIncluirComponent,
     GrupoprodutoIncluirComponent,
-    ContaCaixaInserirComponent
+    ContaCaixaInserirComponent,
+    TipoPagarIncluirComponent
   ],
   imports: [
     BrowserModule,
