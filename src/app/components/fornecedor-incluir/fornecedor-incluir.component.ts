@@ -28,6 +28,26 @@ export class FornecedorIncluirComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  showError(msg: string) {
+    const notificacao = document.getElementById("notificacao")
+    if(notificacao) {
+      notificacao.innerHTML = msg
+      notificacao.classList.add("err")
+      notificacao.style.opacity = "1"
+      setTimeout(() => notificacao.style.opacity = "0", 2000)
+    }
+  }
+
+  showSuccess(msg: string) {
+    const notificacao = document.getElementById("notificacao")
+    if(notificacao) {
+      notificacao.innerHTML = msg
+      notificacao.classList.add("success")
+      notificacao.style.opacity = "1"
+      setTimeout(() => notificacao.style.opacity = "0", 2000)
+    }
+  }
+
   submit() {
     if(this.form.valid) {
       const novoFornecedor: Fornecedor = {
@@ -40,10 +60,15 @@ export class FornecedorIncluirComponent implements OnInit {
         dsObservacao: this.form.value.obs,
         dmSituacao: Boolean(this.form.value.situacao)
       }
-      console.log(novoFornecedor)
-      this.fornecedorService.incluir(novoFornecedor).subscribe(res => console.log(res), error => console.log(error))
+      this.fornecedorService.incluir(novoFornecedor).subscribe(res => {
+        console.log(res)
+        this.showSuccess("Fornecedor inserido")
+      }, error => {
+        if(error.status == 200) this.showSuccess('Fornecedor inserido')
+        else console.log(error)
+      })
     } else {
-      alert('Dados inválidos!')
+      this.showError("Dados inválidos!")
     }
   }
 
