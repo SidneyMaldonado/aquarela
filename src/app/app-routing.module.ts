@@ -20,11 +20,8 @@ import { ParcelaReceberComponent } from './components/parcelareceber/parcelarece
 import { SaldoatualizadoComponent } from './components/saldoatualizado/saldoatualizado.component';
 import { TipopagarComponent } from './components/tipopagar/tipopagar.component';
 import { VendaComponent } from './components/venda/venda.component';
-<<<<<<< HEAD
 import { MovdiaIncluirComponent } from './components/movdia-incluir/movdia-incluir.component';
-=======
 import { FornecedorIncluirComponent } from './components/fornecedor-incluir/fornecedor-incluir.component';
->>>>>>> 84e8e1ef9c5c7ab8727b01a69145cd6aa45327fa
 
 const routes: Routes = [
   {path: "contacaixa", component: ContacaixaComponent},
@@ -60,11 +57,8 @@ const routes: Routes = [
   {path: "contacaixa", component: ContacaixaComponent},
   {path: "cliente", component: ClienteComponent},  
   {path: "venda", component: VendaComponent},
-<<<<<<< HEAD
-  {path:"movdia/incluir", component: MovdiaIncluirComponent}  
-=======
+  {path:"movdia/incluir", component: MovdiaIncluirComponent},
   {path: "fornecedor/incluir", component: FornecedorIncluirComponent}  
->>>>>>> 84e8e1ef9c5c7ab8727b01a69145cd6aa45327fa
 ]
 
 @NgModule({
