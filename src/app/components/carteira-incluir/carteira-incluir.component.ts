@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Carteira } from 'src/app/entities/carteira';
 import { CarteiraService } from 'src/app/services/carteira.service';
+import { showError,showSuccess } from 'src/app/formHandler/formhandler';
 
 @Component({
   selector: 'app-carteira-incluir',
@@ -40,9 +41,19 @@ export class CarteiraIncluirComponent implements OnInit {
         idCliente: this.form.value.idCliente,
       }
       console.log(novaCarteira)
-      this.carteiraService.incluir(novaCarteira).subscribe(res => console.log(res), error => console.log(error))
+      this.carteiraService.incluir(novaCarteira).subscribe(res => {
+        showSuccess("Carteira inserida")
+      }, error => {
+        console.log(error)
+        if(error.status == 200) {
+          showSuccess("Carteira inserida")
+          setTimeout(() => {
+            window.location.reload()
+          }, 2000)
+        }
+      })
     } else {
-      alert('Dados inválidos!')
+      showError("Dados inválidos")
     }
   }
 
