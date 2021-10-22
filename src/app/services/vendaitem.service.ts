@@ -15,4 +15,5 @@ export class VendaitemService {
   getAll(): Observable<VendaItem[]>{
     return this.http.get<VendaItem[]>(`${this.url}`)
   }
+  
 }

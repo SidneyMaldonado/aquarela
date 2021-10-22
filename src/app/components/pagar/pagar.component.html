@@ -1,29 +1,30 @@
-<h2>Lista de Pagamentos</h2>
+
 <div class="container main-content">
-<table class="table">
-    <thead>
-         <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Tipo de Pagamento</th>
-            <th scope="col">Fornecedor</th>
-            <th scope="col">NM Pagar</th>
-            <th scope="col">Quantidade de Parcela</th>
-            <th scope="col">Data de Emissao</th>
-            <th scope="col">Valor</th>
-            <th scope="col">Situacao</th>
-            <th scope="col">Data do Primeiro Vencimento</th>
-         </tr>
-    </thead>
-         <tr *ngFor="let pagar of pagars">
-            <td>{{ pagar.idPagar }}</td>
-            <td>{{ pagar.idTipoPagar }}</td>
-            <td>{{ pagar.idFornecedor }}</td>
-            <td>{{ pagar.nmPagar }}</td>
-            <td>{{ pagar.qtdParcela }}</td>
-            <td>{{ pagar.dtEmissao }}</td>
-            <td>{{ pagar.nrValor }}</td>
-            <td>{{ pagar.dmSituacao }}</td>
-            <td>{{ pagar.dtPrimeiroVencimento }}</td>
-         </tr>
-</table>
+   <h2>Lista de Pagamentos</h2>
+   <table class="table">
+      <thead>
+            <tr>
+               <th scope="col">ID</th>
+               <th scope="col">Tipo de Pagamento</th>
+               <th scope="col">Fornecedor</th>
+               <th scope="col">NM Pagar</th>
+               <th scope="col">Quantidade de Parcela</th>
+               <th scope="col">Data de Emissao</th>
+               <th scope="col">Valor</th>
+               <th scope="col">Situacao</th>
+               <th scope="col">Data do Primeiro Vencimento</th>
+            </tr>
+      </thead>
+            <tr *ngFor="let pagar of pagars">
+               <td>{{ pagar.idPagar }}</td>
+               <td>{{ pagar.idTipoPagar }}</td>
+               <td>{{ pagar.idFornecedor }}</td>
+               <td>{{ pagar.nmPagar }}</td>
+               <td>{{ pagar.qtdParcela }}</td>
+               <td>{{ pagar.dtEmissao }}</td>
+               <td>{{ pagar.nrValor }}</td>
+               <td>{{ pagar.dmSituacao }}</td>
+               <td>{{ pagar.dtPrimeiroVencimento }}</td>
+            </tr>
+   </table>
 </div>
