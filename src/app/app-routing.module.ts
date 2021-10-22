@@ -22,6 +22,7 @@ import { TipopagarComponent } from './components/tipopagar/tipopagar.component';
 import { VendaComponent } from './components/venda/venda.component';
 import { MovdiaIncluirComponent } from './components/movdia-incluir/movdia-incluir.component';
 import { FornecedorIncluirComponent } from './components/fornecedor-incluir/fornecedor-incluir.component';
+import { ContaCaixaInserirComponent } from './components/conta-caixa-inserir/conta-caixa-inserir.component';
 
 const routes: Routes = [
   {path: "contacaixa", component: ContacaixaComponent},
@@ -58,7 +59,8 @@ const routes: Routes = [
   {path: "cliente", component: ClienteComponent},  
   {path: "venda", component: VendaComponent},
   {path:"movdia/incluir", component: MovdiaIncluirComponent},
-  {path: "fornecedor/incluir", component: FornecedorIncluirComponent}  
+  {path: "fornecedor/incluir", component: FornecedorIncluirComponent},
+  {path: "contacaixa/incluir", component:ContaCaixaInserirComponent}  
 ]
 
 @NgModule({
