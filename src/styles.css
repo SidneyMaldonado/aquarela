@@ -24,7 +24,9 @@ td {
 .form input, select, option {
     margin-bottom: .7rem;
 }
-
+select{
+    margin-bottom: .7rem !important; 
+}
 .form input[type=submit] {
     margin-top: 0.7rem;
 }
