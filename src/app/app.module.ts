@@ -23,6 +23,7 @@ import { TipopagarComponent } from './components/tipopagar/tipopagar.component';
 import { VendaComponent } from './components/venda/venda.component';
 import { FornecedorIncluirComponent } from './components/fornecedor-incluir/fornecedor-incluir.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PagarIncluirComponent } from './components/pagar-incluir/pagar-incluir.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ParcelaReceberComponent,
     TipopagarComponent,
     VendaComponent,
-    FornecedorIncluirComponent
+    FornecedorIncluirComponent,
+    PagarIncluirComponent
   ],
   imports: [
     BrowserModule,
