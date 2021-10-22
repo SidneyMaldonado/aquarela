@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MovDia } from 'src/app/entities/movdia';
 import { MovdiaService } from 'src/app/services/movdia.service';
-
+import { showError, showSuccess } from 'src/app/formHandler/formhandler'
 @Component({
   selector: 'app-movdia-incluir',
   templateUrl: './movdia-incluir.component.html',
@@ -24,6 +24,7 @@ export class MovdiaIncluirComponent implements OnInit {
     vlTroco:['', Validators.required],
     vlDeposito:['', Validators.required]
   })
+
   constructor(private movdiaService:MovdiaService, private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
@@ -31,13 +32,14 @@ export class MovdiaIncluirComponent implements OnInit {
 
   incluir(){
     if(!this.form.valid){
-      alert("Formulário inválido!")
+      showError("Dados inválidos");
       return;
     }
     let {dtMovDia, dmAtivo, vlNota100, vlNota50, vlNota20, vlNota10, vlNota5, vlNota2, vlPagseguro, vlDespesa, vlDeposito, vlTroco}= this.form.value
     dmAtivo = Boolean(dmAtivo)
     this.movdiaService.incluir({dtMovDia, dmAtivo, vlNota100, vlNota50, vlNota20, vlNota10, vlNota5, vlNota2, vlPagseguro, vlDespesa, vlTroco, vlDeposito}).subscribe(
-      response => alert(response)
+      response => alert(response),
+      error =>{if(error.status==200){showSuccess("Sucesso ao incluir!")}}
     )
   }
 

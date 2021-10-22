@@ -24,6 +24,7 @@ import { ClienteIncluirComponent } from './components/cliente-incluir/cliente-in
 import { MovdiaIncluirComponent } from './components/movdia-incluir/movdia-incluir.component';
 import { FornecedorIncluirComponent } from './components/fornecedor-incluir/fornecedor-incluir.component';
 import { ProdutoIncluirComponent } from './components/produto-incluir/produto-incluir.component';
+import { CarteiraIncluirComponent } from './components/carteira-incluir/carteira-incluir.component';
 
 const routes: Routes = [
   {path: "tipopagar", component:TipopagarComponent},
@@ -49,6 +50,7 @@ const routes: Routes = [
   {path: "venda", component: VendaComponent},
   {path: "cliente/incluir", component: ClienteIncluirComponent}, 
   {path: "produto/incluir", component: ProdutoIncluirComponent}, 
+  {path: "carteiraincluir", component: CarteiraIncluirComponent},
   {path:"movdia/incluir", component: MovdiaIncluirComponent},
   {path: "fornecedor/incluir", component: FornecedorIncluirComponent}  
 ]

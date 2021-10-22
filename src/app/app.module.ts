@@ -26,6 +26,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MovdiaIncluirComponent } from './components/movdia-incluir/movdia-incluir.component';
 import { FornecedorIncluirComponent } from './components/fornecedor-incluir/fornecedor-incluir.component';
 import { ProdutoIncluirComponent } from './components/produto-incluir/produto-incluir.component';
+import { CarteiraIncluirComponent } from './components/carteira-incluir/carteira-incluir.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,8 @@ import { ProdutoIncluirComponent } from './components/produto-incluir/produto-in
     TipopagarComponent,
     VendaComponent,
     ClienteIncluirComponent,
+    FornecedorIncluirComponent,
+    CarteiraIncluirComponent,
     MovdiaIncluirComponent,
     FornecedorIncluirComponent,
     ProdutoIncluirComponent

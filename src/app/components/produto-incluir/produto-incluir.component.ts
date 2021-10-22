@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Produto } from 'src/app/entities/produto';
 import { ProdutoService } from 'src/app/services/produto.service';
+import { showError, showSuccess } from 'src/app/formHandler/formhandler';
 
 @Component({
   selector: 'app-produto-incluir',
@@ -49,7 +50,7 @@ export class ProdutoIncluirComponent implements OnInit {
         nrPrecoVendaDesconto: this.form.value.nrPrecoVendaDesconto,
         dmSituacao: Boolean(this.form.value.dmSituacao)
       }
-      
+
       this.produtoService.incluir(novoProduto).subscribe(res => {
         console.log(res)
         showSuccess("Produto inserido")

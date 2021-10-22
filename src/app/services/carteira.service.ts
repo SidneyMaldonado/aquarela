@@ -16,4 +16,8 @@ export class CarteiraService {
     return this.http.get<Carteira[]>("https://localhost:44332/api/carteira");
 
   }
+  incluir(fornecedor: Carteira): Observable<Carteira> {
+    return this.http.post<Carteira>("https://localhost:44332/api/carteira", fornecedor)
+  } 
+
 }

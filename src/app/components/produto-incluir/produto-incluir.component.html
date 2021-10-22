@@ -1,1 +1,22 @@
-<p>produto-incluir works!</p>
+<div class ="notificacao" id="notificacao"></div>
+<div class="container main-content">
+    <h2>Inclusão de Produto</h2>
+    <form class="form" [formGroup]="form" (submit)="submit()">
+        <input class="form-control" type="text" placeholder="Descrição" name="dsDescricao" formControlName="dsDescricao">
+        <input class="form-control" type="text" placeholder="Produto" name="dsProduto" formControlName="dsProduto">
+        <input class="form-control" type="text" placeholder="Foto" name="foto" formControlName="foto">
+        <input class="form-control" type="text" placeholder="BarCode" name="dsBarCode" formControlName="dsBarCode">
+        <input class="form-control" type="number" placeholder="Preço Custo" name="nrPrecoCusto" formControlName="nrPrecoCusto">
+        <input class="form-control" type="number" placeholder="Preço Venda" name="nrPrecoVenda" formControlName="nrPrecoVenda">
+        <input class="form-control" type="number" placeholder="Quantidade" name="nrQuantidade" formControlName="nrQuantidade">
+        <input class="form-control" type="number" placeholder="QRCode" name="qrCode" formControlName="qrCode">
+        <input class="form-control" type="number" placeholder="Quantidade Desconto" name="nrQuantidadeDesconto" formControlName="nrQuantidadeDesconto">
+        <input class="form-control" type="number" placeholder="Preço Venda" name="nrPrecoVendaDesconto" formControlName="nrPrecoVendaDesconto">
+        <select aria-placeholder="Situação" class="form-control" formControlName="situacao" name="situacao">
+            <option value="" disabled selected hidden>Situação</option>
+            <option value="0">Inativo</option>
+            <option value="1">Ativo</option>
+        </select>
+        <input class="btn btn-primary" type="submit" value="Incluir">
+    </form>
+</div>
