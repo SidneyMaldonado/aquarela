@@ -1,0 +1,25 @@
+<div class="container main-content">
+    <h2>Lista de Vendas</h2>
+    <table class="table">
+
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Fornecedor</th>
+                <th scope="col">Cliente</th>
+                <th scope="col">Valor total</th>
+                <th scope="col">Pago?</th>
+                <th scope="col">Data</th>                
+            </tr>
+        </thead>
+        <tr *ngFor="let venda of vendas">
+            <td>{{ venda.idVenda }}</td>
+            <td>{{ venda.idFornecedor }}</td>
+            <td>{{ venda.idCliente }}</td>
+            <td>{{ venda.nrTotal }}</td>
+            <td>{{ venda.dmPago }}</td>
+            <td>{{ venda.dtVenda }}</td>
+        </tr>
+
+    </table>
+</div>

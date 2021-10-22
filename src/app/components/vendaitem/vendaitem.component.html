@@ -1,26 +1,28 @@
-<h1>Lista itens venda</h1>
+<div class="container main-content">
+    <h2>Lista Itens de Venda</h2>
 
-<table class="table">
-    <thead class="black white-text">
-        <tr>
-            <th>ID</th>
-            <th>IdVenda</th>
-            <th>Produto</th>
-            <th>Quantidade</th>
-            <th>Preço</th>
-            <th>Total</th>
-            <th>Ativo</th>
-        </tr>
-    </thead>
-    <tbody >
-        <tr *ngFor="let vendaItem of vendaItens">
-            <td>{{ vendaItem.idVendaItem }}</td>
-            <td>{{ vendaItem.idVenda }}</td>
-            <td>{{ vendaItem.produto }}</td>
-            <td>{{ vendaItem.nrQuantidade }}</td>
-            <td>R$ {{ vendaItem.nrPreco }}</td>
-            <td>{{ vendaItem.nrTotal }}</td>
-            <td>{{ vendaItem.dmAtivo && "Ativo" || "Inativo" }}</td>
-        </tr>
-    </tbody>
-</table>
+    <table class="table">
+        <thead class="black white-text">
+            <tr>
+                <th>ID</th>
+                <th>IdVenda</th>
+                <th>Produto</th>
+                <th>Quantidade</th>
+                <th>Preço</th>
+                <th>Total</th>
+                <th>Ativo</th>
+            </tr>
+        </thead>
+        <tbody >
+            <tr *ngFor="let vendaItem of vendaItens">
+                <td>{{ vendaItem.idVendaItem }}</td>
+                <td>{{ vendaItem.idVenda }}</td>
+                <td>{{ vendaItem.produto }}</td>
+                <td>{{ vendaItem.nrQuantidade }}</td>
+                <td>R$ {{ vendaItem.nrPreco }}</td>
+                <td>{{ vendaItem.nrTotal }}</td>
+                <td>{{ vendaItem.dmAtivo && "Ativo" || "Inativo" }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
