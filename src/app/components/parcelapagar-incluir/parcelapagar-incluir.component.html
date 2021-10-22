@@ -1,0 +1,23 @@
+<div id="notificacao" class="notificacao"></div>
+<div class="container main-content">
+    <h2>Inclusão de Parcelas Pagar</h2>
+    <form class="form" [formGroup]="form" (submit)="submit()">
+        <input class="form-control" type="number" placeholder="Parcela" name="parcela" formControlName="nrParcela">
+        <input class="form-control" class="form-control" type="text" placeholder="Documento" name="documento" formControlName="dsDocumento">
+        <label> Data de Vencimento</label>
+        <input class="form-control" type="date" placeholder="Vencimento" name="vencimento" formControlName="dtVencimento">        
+        <input class="form-control" type="number" placeholder="Valor" name="valor" formControlName="nrValor">
+        <label> Data de Pagamento</label>
+        <input class="form-control" type="date" placeholder="Data do Pagamento" name="pagamento" formControlName="dtPagamento">
+        <input class="form-control" type="number" placeholder="Id Valor" name="valorpago" formControlName="nrValorPago">
+        <input class="form-control" type="number" placeholder="Id do Pagar" name="pagar" formControlName="idPagar">
+        <input class="form-control" type="number" placeholder="Id de Conta Caixa" name="contacaixa" formControlName="idContaCaixa">
+        <select aria-placeholder="Situação" class="form-control" formControlName="dmSituacao" name="Situação">
+
+            <option value="" disabled selected hidden>Situação</option>
+            <option value="0">Inativo</option>
+            <option value="1">Ativo</option>
+        </select>
+        <input class="btn btn-primary" type="submit" value="Incluir">
+    </form>
+</div>

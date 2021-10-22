@@ -21,13 +21,18 @@ import { VendaitemComponent } from './components/vendaitem/vendaitem.component';
 import { ParcelaReceberComponent } from './components/parcelareceber/parcelareceber.component';
 import { TipopagarComponent } from './components/tipopagar/tipopagar.component';
 import { VendaComponent } from './components/venda/venda.component';
+import { ClienteIncluirComponent } from './components/cliente-incluir/cliente-incluir.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MovdiaIncluirComponent } from './components/movdia-incluir/movdia-incluir.component';
-import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FornecedorIncluirComponent } from './components/fornecedor-incluir/fornecedor-incluir.component';
+import { ProdutoIncluirComponent } from './components/produto-incluir/produto-incluir.component';
+import { PagarIncluirComponent } from './components/pagar-incluir/pagar-incluir.component';
 import { ContaCaixaInserirComponent } from './components/conta-caixa-inserir/conta-caixa-inserir.component';
 import { CarteiraIncluirComponent } from './components/carteira-incluir/carteira-incluir.component';
+import { ParcelapagarIncluirComponent } from './components/parcelapagar-incluir/parcelapagar-incluir.component';
 import { GrupoprodutoIncluirComponent } from './components/grupoproduto-incluir/grupoproduto-incluir.component';
 import { SaldoatualizadoIncluirComponent } from './components/saldoatualizado-incluir/saldoatualizado-incluir.component';
+import { TipoPagarIncluirComponent } from './components/tipo-pagar-incluir/tipo-pagar-incluir.component';
 
 @NgModule({
   declarations: [
@@ -48,13 +53,18 @@ import { SaldoatualizadoIncluirComponent } from './components/saldoatualizado-in
     ParcelaReceberComponent,
     TipopagarComponent,
     VendaComponent,
+    ClienteIncluirComponent,
     FornecedorIncluirComponent,
+    PagarIncluirComponent,
     CarteiraIncluirComponent,
     MovdiaIncluirComponent,
     FornecedorIncluirComponent,
+    ParcelapagarIncluirComponent,
+    ProdutoIncluirComponent,
     GrupoprodutoIncluirComponent,
     ContaCaixaInserirComponent,
-    SaldoatualizadoIncluirComponent
+    SaldoatualizadoIncluirComponent,
+    TipoPagarIncluirComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,14 @@
+<div class ="notificacao" id="notificacao"></div>
+<div class="container main-content">
+    <h2>Inclusão de Cliente</h2>
+    <form class="form" [formGroup]="form" (submit)="submit()">
+        <input class="form-control" type="text" placeholder="Nome" name="nmCliente" formControlName="nmCliente">
+        <input class="form-control" type="email" placeholder="E-mail" name="nmEmail" formControlName="nmEmail">
+        <select aria-placeholder="Situação" class="form-control" formControlName="dmSituacao" name="dmSituacao">
+            <option value="" disabled selected hidden>Situação</option>
+            <option value="0">Inativo</option>
+            <option value="1">Ativo</option>
+        </select>
+        <input class="btn btn-primary" type="submit" value="Incluir">
+    </form>
+</div>
