@@ -1,0 +1,6 @@
+@AquarelaApi_HostAddress = http://localhost:5230
+
+GET {{AquarelaApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
