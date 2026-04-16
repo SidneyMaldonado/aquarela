@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using MySqlConnector;
 
 namespace AquarelaApi.Controllers;
 
@@ -6,6 +7,13 @@ namespace AquarelaApi.Controllers;
 [Route("api/[controller]")]
 public class ExampleController : ControllerBase
 {
+    private readonly string? _mySqlConnectionString;
+
+    public ExampleController(IConfiguration configuration)
+    {
+        _mySqlConnectionString = configuration.GetConnectionString("MYSQLCONNSTR_localdb");
+    }
+
     [HttpGet("hello")]
     public IActionResult GetHello()
     {
@@ -17,5 +25,27 @@ public class ExampleController : ControllerBase
     {
         var values = new[] { "red", "blue", "green" };
         return Ok(values);
+    }
+
+    [HttpGet("mysql-test")]
+    public async Task<IActionResult> TestMySqlConnection()
+    {
+
+        if (string.IsNullOrEmpty(_mySqlConnectionString))
+            return StatusCode(500, new { success = false, message = "Connection string 'MYSQLCONNSTR_localdb' not found." });
+
+        try
+        {
+            await using var connection = new MySqlConnection(_mySqlConnectionString);
+            await connection.OpenAsync();
+            await using var command = connection.CreateCommand();
+            command.CommandText = "SELECT VERSION();";
+            var version = await command.ExecuteScalarAsync();
+            return Ok(new { success = true, server = connection.DataSource, database = connection.Database, version });
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, new { success = false, message = ex.Message });
+        }
     }
 }
