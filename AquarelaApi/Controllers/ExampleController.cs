@@ -11,12 +11,8 @@ public class ExampleController : ControllerBase
 
     public ExampleController(IConfiguration configuration)
     {
-#if DEBUG
-        _mySqlConnectionString = configuration.GetConnectionString("MYSQLCONNSTR_localdb");
-#else
+        //_mySqlConnectionString = configuration.GetConnectionString("MYSQLCONNSTR_localdb");
         _mySqlConnectionString = Environment.GetEnvironmentVariable("MYSQLCONNSTR_localdb");
-#endif
-
     }
 
     [HttpGet("hello")]
