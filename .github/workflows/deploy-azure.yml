@@ -1,0 +1,36 @@
+name: Deploy para Azure App Service
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout do repositório
+        uses: actions/checkout@v4
+
+      - name: Configurar .NET 10
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.x'
+
+      - name: Restaurar dependências
+        run: dotnet restore AquarelaApi/AquarelaApi.csproj
+
+      - name: Build
+        run: dotnet build AquarelaApi/AquarelaApi.csproj --configuration Release --no-restore
+
+      - name: Publicar
+        run: dotnet publish AquarelaApi/AquarelaApi.csproj --configuration Release --no-build --output ./publish
+
+      - name: Deploy para Azure App Service
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: 'AquarelaConsignacao'
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+          package: ./publish
