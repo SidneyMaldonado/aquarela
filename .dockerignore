@@ -1,0 +1,46 @@
+# Diretórios de build e binários
+**/bin/
+**/obj/
+**/out/
+**/publish/
+
+# Arquivos do Visual Studio
+**/.vs/
+**/.vscode/
+*.user
+*.suo
+*.sln.docstates
+
+# Testes
+**/TestResults/
+**/*.trx
+
+# Git
+.git/
+.gitignore
+.gitattributes
+
+# Docker
+**/.dockerignore
+**/Dockerfile*
+**/docker-compose*
+
+# Documentação e arquivos temporários
+**/*.md
+!README.md
+**/*.txt
+**/md/
+**/.DS_Store
+**/*.log
+
+# Secrets (nunca devem estar na imagem)
+**/appsettings.Development.json
+**/appsettings.*.json
+!**/appsettings.json
+
+# Node/npm (se houver frontend)
+**/node_modules/
+**/npm-debug.log
+
+# Outros
+**/.github/
