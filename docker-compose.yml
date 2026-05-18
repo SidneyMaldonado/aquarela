@@ -1,0 +1,26 @@
+services:
+  aquarelaapi:
+    image: aquarelaapi:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: aquarela-api
+    ports:
+      - "5000:8080"
+      - "5001:8081"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_URLS=http://+:8080
+      # Connection string via variável de ambiente (substitui o appsettings.json)
+      - ConnectionStrings__DefaultConnection=${CONNECTION_STRING}
+      # JWT settings
+      - Jwt__Key=${JWT_KEY}
+      - Jwt__Issuer=AquarelaApi
+      - Jwt__Audience=AquarelaApi
+    restart: unless-stopped
+    networks:
+      - aquarela-network
+
+networks:
+  aquarela-network:
+    driver: bridge

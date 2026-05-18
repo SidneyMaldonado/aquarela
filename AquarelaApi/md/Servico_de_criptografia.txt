@@ -1,0 +1,17 @@
+!Programe tudo em C#
+!Mantenha os padrões do projeto e as boas prátias de desenvolvimento
+# Serviço de Criptografia
+O serviço de criptografia é responsável por fornecer funcionalidades de criptografia e descriptografia de dados sensíveis, garantindo a segurança das informações armazenadas e transmitidas pela aplicação. Ele utiliza algoritmos de criptografia modernos e seguros para proteger os dados contra acesso não autorizado.
+## Funcionalidades
+- Criptogafia: Permite criptografar dados sensíveis, como senhas, informações pessoais e dados financeiros, utilizando algoritmos de criptografia robustos.
+- Descriptografia: Permite descriptografar os dados criptografados, garantindo que apenas usuários autorizados possam acessar as informações protegidas.
+
+- É preciso cria esses dois métodos, um para criptografia e outro para descriptografia, utilizando algoritmos de criptografia modernos e seguros, 
+como AES (Advanced Encryption Standard) ou RSA (Rivest-Shamir-Adleman).
+O serviço deve ser implementado de forma a garantir a segurança dos dados,
+utilizando chaves de criptografia fortes e protegendo as chaves de acesso. Além disso,
+
+o serviço deve ser projetado para ser facilmente integrado com outras partes da aplicação, permitindo que os dados sejam criptografados e descriptografados de forma transparente para os usuários finais.
+
+
+

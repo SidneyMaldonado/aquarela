@@ -14,12 +14,20 @@ public class AuthController : ControllerBase
     [HttpPost("login")]
     public async Task<IActionResult> Login([FromBody] LoginRequest request)
     {
-        var token = await _loginUseCase.ExecuteAsync(request.Email, request.Senha);
 
-        if (token is null)
-            return Unauthorized(new { message = "Email ou senha inválidos." });
+        try
+        {
+            var token = await _loginUseCase.ExecuteAsync(request.Email, request.Senha);
 
-        return Ok(new { token });
+            if (token is null)
+                return Unauthorized(new { message = "Email ou senha inválidos." });
+
+            return Ok(new { token });
+        } catch (Exception ex)
+        {
+            return StatusCode(500, new { message = $"Ocorreu um erro ao processar a solicitação. {ex.Message}",  ex.Message });
+        }
+
     }
 }
 
