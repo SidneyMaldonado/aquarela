@@ -1,3 +1,4 @@
+using AquarelaApi.DTOs;
 using AquarelaApi.Models;
 using AquarelaApi.UseCases;
 using Microsoft.AspNetCore.Authorization;
@@ -15,31 +16,96 @@ public class ContasController : ControllerBase
     public ContasController(ContaUseCase useCase) => _useCase = useCase;
 
     [HttpGet]
-    public async Task<IActionResult> GetAll() => Ok(await _useCase.GetAllAsync());
+    public async Task<IActionResult> GetAll()
+    {
+        var contas = await _useCase.GetAllAsync();
+        var response = contas.Select(c => new ContaResponse(
+            c.IdConta,
+            c.IdUsuario,
+            c.NmConta,
+            c.NrSaldo,
+            c.Usuario?.NmUsuario
+        ));
+        return Ok(response);
+    }
 
     [HttpGet("{id:int}")]
     public async Task<IActionResult> GetById(int id)
     {
         var conta = await _useCase.GetByIdAsync(id);
-        return conta is null ? NotFound() : Ok(conta);
+        if (conta is null) return NotFound();
+
+        var response = new ContaResponse(
+            conta.IdConta,
+            conta.IdUsuario,
+            conta.NmConta,
+            conta.NrSaldo,
+            conta.Usuario?.NmUsuario
+        );
+        return Ok(response);
     }
 
     [HttpGet("usuario/{idUsuario:int}")]
     public async Task<IActionResult> GetByUsuario(int idUsuario)
-        => Ok(await _useCase.GetByUsuarioIdAsync(idUsuario));
+    {
+        var contas = await _useCase.GetByUsuarioIdAsync(idUsuario);
+        var response = contas.Select(c => new ContaResponse(
+            c.IdConta,
+            c.IdUsuario,
+            c.NmConta,
+            c.NrSaldo,
+            c.Usuario?.NmUsuario
+        ));
+        return Ok(response);
+    }
 
     [HttpPost]
-    public async Task<IActionResult> Create([FromBody] Conta conta)
+    public async Task<IActionResult> Create([FromBody] CreateContaRequest request)
     {
+        var conta = new Conta
+        {
+            IdUsuario = request.IdUsuario,
+            NmConta = request.NmConta,
+            NrSaldo = request.NrSaldo
+        };
+
         var created = await _useCase.CreateAsync(conta);
-        return CreatedAtAction(nameof(GetById), new { id = created.IdConta }, created);
+
+        var response = new ContaResponse(
+            created.IdConta,
+            created.IdUsuario,
+            created.NmConta,
+            created.NrSaldo,
+            null
+        );
+
+        return CreatedAtAction(nameof(GetById), new { id = created.IdConta }, response);
     }
 
     [HttpPut("{id:int}")]
-    public async Task<IActionResult> Update(int id, [FromBody] Conta conta)
+    public async Task<IActionResult> Update(int id, [FromBody] UpdateContaRequest request)
     {
-        if (id != conta.IdConta) return BadRequest();
-        return Ok(await _useCase.UpdateAsync(conta));
+        if (id != request.IdConta) return BadRequest();
+
+        var conta = new Conta
+        {
+            IdConta = request.IdConta,
+            IdUsuario = request.IdUsuario,
+            NmConta = request.NmConta,
+            NrSaldo = request.NrSaldo
+        };
+
+        var updated = await _useCase.UpdateAsync(conta);
+
+        var response = new ContaResponse(
+            updated.IdConta,
+            updated.IdUsuario,
+            updated.NmConta,
+            updated.NrSaldo,
+            null
+        );
+
+        return Ok(response);
     }
 
     [HttpDelete("{id:int}")]

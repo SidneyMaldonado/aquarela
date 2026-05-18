@@ -22,7 +22,7 @@ public class Conta
     [Required]
     [Column("nr_saldo")]
     public decimal NrSaldo { get; set; }
-
+  
     [ForeignKey(nameof(IdUsuario))]
     public Usuario? Usuario { get; set; }
 }

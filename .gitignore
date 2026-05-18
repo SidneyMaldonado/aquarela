@@ -416,3 +416,8 @@ FodyWeavers.xsd
 *.msix
 *.msm
 *.msp
+
+# Secrets locais - nunca subir
+appsettings.Development.json
+appsettings.*.json
+!appsettings.json

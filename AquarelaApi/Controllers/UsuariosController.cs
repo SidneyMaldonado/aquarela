@@ -1,3 +1,4 @@
+using AquarelaApi.DTOs;
 using AquarelaApi.Models;
 using AquarelaApi.UseCases;
 using Microsoft.AspNetCore.Authorization;
@@ -15,27 +16,84 @@ public class UsuariosController : ControllerBase
     public UsuariosController(UsuarioUseCase useCase) => _useCase = useCase;
 
     [HttpGet]
-    public async Task<IActionResult> GetAll() => Ok(await _useCase.GetAllAsync());
+    public async Task<IActionResult> GetAll()
+    {
+        var usuarios = await _useCase.GetAllAsync();
+        var response = usuarios.Select(u => new UsuarioResponse(
+            u.IdUsuario,
+            u.NmUsuario,
+            u.DsEmail,
+            u.DmAtivo
+        ));
+        return Ok(response);
+    }
 
     [HttpGet("{id:int}")]
     public async Task<IActionResult> GetById(int id)
     {
         var usuario = await _useCase.GetByIdAsync(id);
-        return usuario is null ? NotFound() : Ok(usuario);
+        if (usuario is null) return NotFound();
+
+        var response = new UsuarioResponse(
+            usuario.IdUsuario,
+            usuario.NmUsuario,
+            usuario.DsEmail,
+            usuario.DmAtivo
+        );
+        return Ok(response);
     }
 
     [HttpPost]
-    public async Task<IActionResult> Create([FromBody] Usuario usuario)
+    public async Task<IActionResult> Create([FromBody] CreateUsuarioRequest request)
     {
+        var usuario = new Usuario
+        {
+            NmUsuario = request.NmUsuario,
+            DsEmail = request.DsEmail,
+            DsSenha = request.DsSenha,
+            DmAtivo = request.DmAtivo
+        };
+
         var created = await _useCase.CreateAsync(usuario);
-        return CreatedAtAction(nameof(GetById), new { id = created.IdUsuario }, created);
+
+        var response = new UsuarioResponse(
+            created.IdUsuario,
+            created.NmUsuario,
+            created.DsEmail,
+            created.DmAtivo
+        );
+
+        return CreatedAtAction(nameof(GetById), new { id = created.IdUsuario }, response);
     }
 
     [HttpPut("{id:int}")]
-    public async Task<IActionResult> Update(int id, [FromBody] Usuario usuario)
+    public async Task<IActionResult> Update(int id, [FromBody] UpdateUsuarioRequest request)
     {
-        if (id != usuario.IdUsuario) return BadRequest();
-        return Ok(await _useCase.UpdateAsync(usuario));
+        if (id != request.IdUsuario) return BadRequest();
+
+        // Buscar o usuário existente para manter a senha
+        var existing = await _useCase.GetByIdAsync(id);
+        if (existing is null) return NotFound();
+
+        var usuario = new Usuario
+        {
+            IdUsuario = request.IdUsuario,
+            NmUsuario = request.NmUsuario,
+            DsEmail = request.DsEmail,
+            DmAtivo = request.DmAtivo,
+            DsSenha = existing.DsSenha  // Mantém a senha existente
+        };
+
+        var updated = await _useCase.UpdateAsync(usuario);
+
+        var response = new UsuarioResponse(
+            updated.IdUsuario,
+            updated.NmUsuario,
+            updated.DsEmail,
+            updated.DmAtivo
+        );
+
+        return Ok(response);
     }
 
     [HttpDelete("{id:int}")]

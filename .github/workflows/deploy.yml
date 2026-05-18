@@ -1,0 +1,42 @@
+name: Deploy AquarelaApi
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v4
+
+      - name: Configurar .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.x'
+
+      - name: Restaurar dependências
+        run: dotnet restore AquarelaApi/AquarelaApi.csproj
+
+      - name: Build
+        run: dotnet build AquarelaApi/AquarelaApi.csproj --configuration Release --no-restore
+
+      - name: Testes
+        run: dotnet test AquarelaTest/AquarelaTest.csproj --no-restore
+
+      - name: Publicar
+        run: dotnet publish AquarelaApi/AquarelaApi.csproj --configuration Release --output ./publish
+
+      - name: Deploy para Azure Web App
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: ${{ secrets.AZURE_WEBAPP_NAME }}
+          publish-profile: ${{ secrets.AZURE_PUBLISH_PROFILE }}
+          package: ./publish
+        env:
+          # A connection string é injetada como variável de ambiente em runtime
+          # Configure também no Azure App Service → Configuration → Application settings
+          ConnectionStrings__DefaultConnection: ${{ secrets.CONNECTION_STRING }}
