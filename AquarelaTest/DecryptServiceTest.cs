@@ -16,9 +16,14 @@ public class DecryptServiceTest
 
         // Assert
         Assert.IsNotNull(textoCriptografado);
-        Assert.IsTrue(textoCriptografado.Length > 0);
-        Assert.IsTrue(textoCriptografado.All(c => "0123456789abcdef".Contains(c)), 
-            "A string criptografada deve estar em formato hexadecimal");
+        Assert.IsGreaterThan(0, textoCriptografado.Length);
+
+        // Validar que todos os caracteres são hexadecimais (0-9, a-f)
+        foreach (char c in textoCriptografado)
+        {
+            Assert.IsTrue(char.IsDigit(c) || (c >= 'a' && c <= 'f'),
+                $"Caractere '{c}' não é hexadecimal válido");
+        }
     }
 
     [TestMethod]
@@ -115,9 +120,9 @@ public class DecryptServiceTest
             "Connection string descriptografada deve ser igual à original");
 
         // Validar que contém os componentes principais
-        Assert.IsTrue(connectionStringDescriptografada.Contains("aquarela-sql.database.windows.net"));
-        Assert.IsTrue(connectionStringDescriptografada.Contains("free-sql-db-5947062"));
-        Assert.IsTrue(connectionStringDescriptografada.Contains("Password=Azure@99!!"));
+        StringAssert.Contains(connectionStringDescriptografada, "aquarela-sql.database.windows.net");
+        StringAssert.Contains(connectionStringDescriptografada, "free-sql-db-5947062");
+        StringAssert.Contains(connectionStringDescriptografada, "Password=Azure@99!!");
     }
 
     [TestMethod]
@@ -149,8 +154,7 @@ public class DecryptServiceTest
         }
         catch (InvalidOperationException)
         {
-            // Esperado
-            Assert.IsTrue(true);
+            // Esperado - exceção foi lançada corretamente
         }
     }
 
@@ -168,8 +172,10 @@ public class DecryptServiceTest
         }
         catch (InvalidOperationException ex)
         {
-            Assert.IsTrue(ex.Message.Contains("descriptografar") || 
-                         ex.InnerException?.Message.Contains("comprimento par") == true);
+            bool mensagemValida = ex.Message.Contains("descriptografar") || 
+                                  (ex.InnerException?.Message.Contains("comprimento par") ?? false);
+            Assert.IsTrue(mensagemValida, 
+                $"Mensagem de erro inesperada: {ex.Message}");
         }
     }
 

@@ -6,8 +6,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AquarelaApi", "AquarelaApi\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AquarelaTest", "AquarelaTest\AquarelaTest.csproj", "{92250186-D5D5-4B39-85D3-5B197B5910F9}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Cripy", "Cripy\Cripy.vcxproj", "{EF482A12-FAEA-4518-9569-758C8D0563F9}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,18 +40,6 @@ Global
 		{92250186-D5D5-4B39-85D3-5B197B5910F9}.Release|x64.Build.0 = Release|Any CPU
 		{92250186-D5D5-4B39-85D3-5B197B5910F9}.Release|x86.ActiveCfg = Release|Any CPU
 		{92250186-D5D5-4B39-85D3-5B197B5910F9}.Release|x86.Build.0 = Release|Any CPU
-		{EF482A12-FAEA-4518-9569-758C8D0563F9}.Debug|Any CPU.ActiveCfg = Debug|x64
-		{EF482A12-FAEA-4518-9569-758C8D0563F9}.Debug|Any CPU.Build.0 = Debug|x64
-		{EF482A12-FAEA-4518-9569-758C8D0563F9}.Debug|x64.ActiveCfg = Debug|x64
-		{EF482A12-FAEA-4518-9569-758C8D0563F9}.Debug|x64.Build.0 = Debug|x64
-		{EF482A12-FAEA-4518-9569-758C8D0563F9}.Debug|x86.ActiveCfg = Debug|Win32
-		{EF482A12-FAEA-4518-9569-758C8D0563F9}.Debug|x86.Build.0 = Debug|Win32
-		{EF482A12-FAEA-4518-9569-758C8D0563F9}.Release|Any CPU.ActiveCfg = Release|x64
-		{EF482A12-FAEA-4518-9569-758C8D0563F9}.Release|Any CPU.Build.0 = Release|x64
-		{EF482A12-FAEA-4518-9569-758C8D0563F9}.Release|x64.ActiveCfg = Release|x64
-		{EF482A12-FAEA-4518-9569-758C8D0563F9}.Release|x64.Build.0 = Release|x64
-		{EF482A12-FAEA-4518-9569-758C8D0563F9}.Release|x86.ActiveCfg = Release|Win32
-		{EF482A12-FAEA-4518-9569-758C8D0563F9}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
