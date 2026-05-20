@@ -75,16 +75,10 @@ public class UsuariosController : ControllerBase
         var existing = await _useCase.GetByIdAsync(id);
         if (existing is null) return NotFound();
 
-        var usuario = new Usuario
-        {
-            IdUsuario = request.IdUsuario,
-            NmUsuario = request.NmUsuario,
-            DsEmail = request.DsEmail,
-            DmAtivo = request.DmAtivo,
-            DsSenha = existing.DsSenha  // Mantém a senha existente
-        };
-
-        var updated = await _useCase.UpdateAsync(usuario);
+        existing.NmUsuario = request.NmUsuario;
+        existing.DsEmail = request.DsEmail;
+        existing.DmAtivo = request.DmAtivo;
+        var updated = await _useCase.UpdateAsync(existing);
 
         var response = new UsuarioResponse(
             updated.IdUsuario,
@@ -92,7 +86,6 @@ public class UsuariosController : ControllerBase
             updated.DsEmail,
             updated.DmAtivo
         );
-
         return Ok(response);
     }
 
