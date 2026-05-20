@@ -11,12 +11,6 @@ public class AuthController : ControllerBase
 
     public AuthController(LoginUseCase loginUseCase) => _loginUseCase = loginUseCase;
 
-    [HttpGet("health")]
-    public IActionResult Health()
-    {
-        return Ok(new { message = "API is healthy." });
-    }
-
     [HttpPost("login")]
     public async Task<IActionResult> Login([FromBody] LoginRequest request)
     {
