@@ -29,6 +29,10 @@ public class HealthController : ControllerBase
     [HttpGet("database")]
     public async Task<IActionResult> CheckDatabase()
     {
+        var connectionString = _context.Database.GetConnectionString();
+        var safeConnectionString = connectionString != null
+            ? System.Text.RegularExpressions.Regex.Replace(connectionString, @"Password=[^;]*", "Password=***")
+            : "N/A";
         try
         {
             // Tenta conectar e executar uma query simples
@@ -41,17 +45,21 @@ public class HealthController : ControllerBase
                     status = "unhealthy",
                     message = "Não foi possível conectar ao banco de dados",
                     timestamp = DateTime.UtcNow
-                });
+                });     
             }
 
             // Tenta executar uma query para contar usuários (valida se as tabelas existem)
             var userCount = await _context.Usuarios.CountAsync();
 
+            // Obtém a connection string e oculta informações sensíveis (senha)
+           
+
             return Ok(new
             {
                 status = "healthy",
                 message = "Conexão com o banco de dados OK",
-                database = _context.Database.GetConnectionString()?.Split(';').FirstOrDefault(s => s.Contains("Initial Catalog"))?.Split('=').LastOrDefault() ?? "N/A",
+                database = connectionString?.Split(';').FirstOrDefault(s => s.Contains("Initial Catalog"))?.Split('=').LastOrDefault() ?? "N/A",
+                connectionString = safeConnectionString,
                 userCount,
                 timestamp = DateTime.UtcNow
             });
@@ -62,6 +70,101 @@ public class HealthController : ControllerBase
             {
                 status = "unhealthy",
                 message = "Erro ao conectar com o banco de dados",
+                error = ex.Message,
+                innerError = ex.InnerException?.Message,
+                connectionString = safeConnectionString,
+                timestamp = DateTime.UtcNow
+            });
+        }
+    }
+
+    [HttpGet("database/tables")]
+    public async Task<IActionResult> ListTables()
+    {
+        var connectionString = _context.Database.GetConnectionString();
+        var safeConnectionString = connectionString != null
+            ? System.Text.RegularExpressions.Regex.Replace(connectionString, @"Password=[^;]*", "Password=***")
+            : "N/A";
+
+        try
+        {
+            var canConnect = await _context.Database.CanConnectAsync();
+            if (!canConnect)
+            {
+                return StatusCode(503, new
+                {
+                    status = "error",
+                    message = "Não foi possível conectar ao banco de dados",
+                    connectionString = safeConnectionString,
+                    timestamp = DateTime.UtcNow
+                });
+            }
+
+            var connection = _context.Database.GetDbConnection();
+            await connection.OpenAsync();
+
+            // Query para obter informações do banco atual E listar tabelas
+            var dbInfoQuery = "SELECT DB_NAME() AS CurrentDatabase, @@SERVERNAME AS ServerName";
+            using var dbInfoCommand = connection.CreateCommand();
+            dbInfoCommand.CommandText = dbInfoQuery;
+
+            string currentDatabase = "";
+            string serverName = "";
+            using (var dbInfoReader = await dbInfoCommand.ExecuteReaderAsync())
+            {
+                if (await dbInfoReader.ReadAsync())
+                {
+                    currentDatabase = dbInfoReader.GetString(0);
+                    serverName = dbInfoReader.GetString(1);
+                }
+            }
+
+            // Query para listar todas as tabelas do banco de dados
+            var query = @"
+                SELECT 
+                    TABLE_SCHEMA,
+                    TABLE_NAME,
+                    TABLE_TYPE
+                FROM INFORMATION_SCHEMA.TABLES 
+                WHERE TABLE_TYPE = 'BASE TABLE'
+                ORDER BY TABLE_SCHEMA, TABLE_NAME";
+
+            using var command = connection.CreateCommand();
+            command.CommandText = query;
+
+            var tables = new List<object>();
+            using var reader = await command.ExecuteReaderAsync();
+
+            while (await reader.ReadAsync())
+            {
+                tables.Add(new
+                {
+                    schema = reader.GetString(0),
+                    name = reader.GetString(1),
+                    type = reader.GetString(2)
+                });
+            }
+
+            await connection.CloseAsync();
+
+            return Ok(new
+            {
+                status = "success",
+                currentDatabase,
+                serverName,
+                connectionString = safeConnectionString,
+                tableCount = tables.Count,
+                tables,
+                timestamp = DateTime.UtcNow
+            });
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, new
+            {
+                status = "error",
+                message = "Erro ao listar tabelas do banco de dados",
+                connectionString = safeConnectionString,
                 error = ex.Message,
                 innerError = ex.InnerException?.Message,
                 timestamp = DateTime.UtcNow
