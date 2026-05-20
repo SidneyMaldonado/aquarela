@@ -29,6 +29,14 @@ public class DividaRepository : IDividaRepository
 
     public async Task<Divida> UpdateAsync(Divida entity)
     {
+        // Desanexar qualquer instância já rastreada
+        var tracked = _context.ChangeTracker.Entries<Divida>()
+            .FirstOrDefault(e => e.Entity.IdDivida == entity.IdDivida);
+        if (tracked != null)
+        {
+            tracked.State = EntityState.Detached;
+        }
+
         _context.Dividas.Update(entity);
         await _context.SaveChangesAsync();
         return entity;

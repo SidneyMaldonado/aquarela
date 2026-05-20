@@ -162,12 +162,26 @@ public class DividasEndToEndTest
     [TestMethod]
     public async Task Update_ComDadosValidos_DeveRetornar200ComDividaAtualizada()
     {
-        // Arrange
-        var payload = new
+        // Arrange - Criar uma nova dívida para atualizar
+        var createPayload = new
         {
-            IdDivida = _dividaId,
             IdUsuario = _usuarioId,
-            NmDivida = "Cartão de Crédito Atualizado",
+            NmDivida = "Dívida Para Atualizar",
+            DiaVencimento = 5,
+            DtPrimeiroVencimento = new DateTime(2025, 05, 05),
+            NrParcelas = 6,
+            NrValor = 800.00m
+        };
+        var createResponse = await _client.PostAsJsonAsync("/api/dividas", createPayload);
+        var createBody = await createResponse.Content.ReadAsStringAsync();
+        var createJson = JsonDocument.Parse(createBody).RootElement;
+        var dividaId = createJson.GetProperty("idDivida").GetInt32();
+
+        var updatePayload = new
+        {
+            IdDivida = dividaId,
+            IdUsuario = _usuarioId,
+            NmDivida = "Dívida Atualizada",
             DiaVencimento = 10,
             DtPrimeiroVencimento = new DateTime(2025, 02, 10),
             NrParcelas = 12,
@@ -175,7 +189,7 @@ public class DividasEndToEndTest
         };
 
         // Act
-        var response = await _client.PutAsJsonAsync($"/api/dividas/{_dividaId}", payload);
+        var response = await _client.PutAsJsonAsync($"/api/dividas/{dividaId}", updatePayload);
         var body = await response.Content.ReadAsStringAsync();
 
         // Assert
@@ -183,7 +197,7 @@ public class DividasEndToEndTest
             $"Esperado 200 OK, recebido {(int)response.StatusCode}. Body: {body}");
 
         var json = JsonDocument.Parse(body).RootElement;
-        Assert.AreEqual("Cartão de Crédito Atualizado", json.GetProperty("nmDivida").GetString());
+        Assert.AreEqual("Dívida Atualizada", json.GetProperty("nmDivida").GetString());
         Assert.AreEqual(2000.00m, json.GetProperty("nrValor").GetDecimal());
     }
 

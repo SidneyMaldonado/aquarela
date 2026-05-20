@@ -156,17 +156,28 @@ public class ContasEndToEndTest
     [TestMethod]
     public async Task Update_ComDadosValidos_DeveRetornar200ComContaAtualizada()
     {
-        // Arrange
-        var payload = new
+        // Arrange - Criar uma nova conta para atualizar
+        var createPayload = new
         {
-            IdConta = _contaId,
             IdUsuario = _usuarioId,
-            NmConta = "Conta Corrente Atualizada",
+            NmConta = "Conta Para Atualizar",
+            NrSaldo = 500.00m
+        };
+        var createResponse = await _client.PostAsJsonAsync("/api/contas", createPayload);
+        var createBody = await createResponse.Content.ReadAsStringAsync();
+        var createJson = JsonDocument.Parse(createBody).RootElement;
+        var contaId = createJson.GetProperty("idConta").GetInt32();
+
+        var updatePayload = new
+        {
+            IdConta = contaId,
+            IdUsuario = _usuarioId,
+            NmConta = "Conta Atualizada",
             NrSaldo = 2000.75m
         };
 
         // Act
-        var response = await _client.PutAsJsonAsync($"/api/contas/{_contaId}", payload);
+        var response = await _client.PutAsJsonAsync($"/api/contas/{contaId}", updatePayload);
         var body = await response.Content.ReadAsStringAsync();
 
         // Assert
@@ -174,7 +185,7 @@ public class ContasEndToEndTest
             $"Esperado 200 OK, recebido {(int)response.StatusCode}. Body: {body}");
 
         var json = JsonDocument.Parse(body).RootElement;
-        Assert.AreEqual("Conta Corrente Atualizada", json.GetProperty("nmConta").GetString());
+        Assert.AreEqual("Conta Atualizada", json.GetProperty("nmConta").GetString());
         Assert.AreEqual(2000.75m, json.GetProperty("nrSaldo").GetDecimal());
     }
 

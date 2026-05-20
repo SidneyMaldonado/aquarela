@@ -130,17 +130,29 @@ public class UsuariosEndToEndTest
     [TestMethod]
     public async Task Update_ComDadosValidos_DeveRetornar200ComUsuarioAtualizado()
     {
-        // Arrange
-        var payload = new
+        // Arrange - Criar um novo usuário para atualizar
+        var createPayload = new
         {
-            IdUsuario = _usuarioId,
-            NmUsuario = "Admin Atualizado",
-            DsEmail = "admin@mail.com",
+            NmUsuario = "Usuario Para Atualizar",
+            DsEmail = "atualizar@mail.com",
+            DsSenha = "senha123",
+            DmAtivo = true
+        };
+        var createResponse = await _client.PostAsJsonAsync("/api/usuarios", createPayload);
+        var createBody = await createResponse.Content.ReadAsStringAsync();
+        var createJson = JsonDocument.Parse(createBody).RootElement;
+        var usuarioId = createJson.GetProperty("idUsuario").GetInt32();
+
+        var updatePayload = new
+        {
+            IdUsuario = usuarioId,
+            NmUsuario = "Usuario Atualizado",
+            DsEmail = "atualizar@mail.com",
             DmAtivo = true
         };
 
         // Act
-        var response = await _client.PutAsJsonAsync($"/api/usuarios/{_usuarioId}", payload);
+        var response = await _client.PutAsJsonAsync($"/api/usuarios/{usuarioId}", updatePayload);
         var body = await response.Content.ReadAsStringAsync();
 
         // Assert
@@ -148,7 +160,7 @@ public class UsuariosEndToEndTest
             $"Esperado 200 OK, recebido {(int)response.StatusCode}. Body: {body}");
 
         var json = JsonDocument.Parse(body).RootElement;
-        Assert.AreEqual("Admin Atualizado", json.GetProperty("nmUsuario").GetString());
+        Assert.AreEqual("Usuario Atualizado", json.GetProperty("nmUsuario").GetString());
     }
 
     [TestMethod]
