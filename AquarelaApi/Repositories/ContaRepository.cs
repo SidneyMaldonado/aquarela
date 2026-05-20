@@ -29,14 +29,6 @@ public class ContaRepository : IContaRepository
 
     public async Task<Conta> UpdateAsync(Conta entity)
     {
-        // Desanexar qualquer instância já rastreada
-        var tracked = _context.ChangeTracker.Entries<Conta>()
-            .FirstOrDefault(e => e.Entity.IdConta == entity.IdConta);
-        if (tracked != null)
-        {
-            tracked.State = EntityState.Detached;
-        }
-
         _context.Contas.Update(entity);
         await _context.SaveChangesAsync();
         return entity;

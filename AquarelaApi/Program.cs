@@ -2,6 +2,7 @@ using AquarelaApi.Contexts;
 using AquarelaApi.Repositories;
 using AquarelaApi.Repositories.Interfaces;
 using AquarelaApi.UseCases;
+using AquarelaApi.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -11,9 +12,15 @@ using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
+Console.WriteLine(builder.Configuration.GetConnectionString("DefaultConnection"));
 // EF Core - SQL Server
+#if DEBUG
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+#else
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseSqlServer(DecryptService.Decrypt(builder.Configuration.GetConnectionString("DefaultConnection")!)));
+#endif
 
 // Repositories
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();

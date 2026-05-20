@@ -29,14 +29,6 @@ public class UsuarioRepository : IUsuarioRepository
 
     public async Task<Usuario> UpdateAsync(Usuario entity)
     {
-        // Desanexar qualquer instância já rastreada
-        var tracked = _context.ChangeTracker.Entries<Usuario>()
-            .FirstOrDefault(e => e.Entity.IdUsuario == entity.IdUsuario);
-        if (tracked != null)
-        {
-            tracked.State = EntityState.Detached;
-        }
-
         _context.Usuarios.Update(entity);
         await _context.SaveChangesAsync();
         return entity;
