@@ -11,10 +11,15 @@ public class AuthController : ControllerBase
 
     public AuthController(LoginUseCase loginUseCase) => _loginUseCase = loginUseCase;
 
+    [HttpGet("health")]
+    public IActionResult Health()
+    {
+        return Ok(new { message = "API is healthy." });
+    }
+
     [HttpPost("login")]
     public async Task<IActionResult> Login([FromBody] LoginRequest request)
     {
-
         try
         {
             var token = await _loginUseCase.ExecuteAsync(request.Email, request.Senha);
@@ -25,9 +30,8 @@ public class AuthController : ControllerBase
             return Ok(new { token });
         } catch (Exception ex)
         {
-            return StatusCode(500, new { message = $"Ocorreu um erro ao processar a solicitação. {ex.Message}",  ex.Message });
+            return Ok(new { message = $"Ocorreu um erro ao processar a solicitação. {ex.Message}",  ex.Message });
         }
-
     }
 }
 
