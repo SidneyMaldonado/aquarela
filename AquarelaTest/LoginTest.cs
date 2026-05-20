@@ -59,7 +59,7 @@ namespace AquarelaTest
 
             // Assert
             Assert.IsNotNull(token, "O token não deve ser nulo para credenciais válidas.");
-            Assert.IsTrue(token.Length > 0, "O token deve ser uma string não vazia.");
+            Assert.IsGreaterThan(token.Length, 20, "O token deve ter um comprimento razoável para ser válido.");
         }
     }
 }
